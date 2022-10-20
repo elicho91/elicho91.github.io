@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Cloud Researcher
-subtitle: Artificial Intelligence Research Laboratory, ETRI
+title: ELI CHO
+subtitle: 스파르타 코딩클럽- [왕초보] 비개발자를 위한, 웹개발 종합반(프로그래밍 실무, 풀스택)
 cover-img: /assets/img/elicho91.jpg
 ---
 
