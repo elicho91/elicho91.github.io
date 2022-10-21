@@ -6,12 +6,7 @@ tags: [HTML, CSS]
 comments: true
 ---
 
-## **03. HTML, CSS 기본 내용**
-
-<aside>
-💡 바탕화면에 `sparta` 폴더 → `frontend` 폴더를 만들고 시작할게요!
-
-</aside>
+## **HTML, CSS 기본 내용**
 
 - 1) HTML과 CSS의 개념
     
@@ -19,26 +14,19 @@ comments: true
     👉 HTML은 뼈대, CSS는 꾸미기!
     
     </aside>
-    
-    - HTML은 구역과 텍스트를 나타내는 코드로, CSS는 잡은 구역을 꾸며주는 것으로 생각합니다. HTML 내 style 속성으로 꾸미기를 할 수 있지만, 긴 세월동안 이것을 한데 모아 볼 수 있는 CSS 파일이 탄생하게 되었습니다. HTML 코드 내에 CSS 파일을 불러와서 적용합니다.
-    - 또한 CSS를 잘 사용할 줄 아는 것과, '예쁘게' 만드는 것은 다른 영역이기 때문에(붓을 잡을 줄 아는 것과 그림을 잘 그릴 줄 아는 것의 차이), 많은 경우 웹디자이너나 퍼블리셔에게 의존하게 됩니다.
+
 - 2) HTML 기초
     
     <aside>
-    👉 HTML은 크게 head와 body로 구성된답니다.
+    👉 HTML은 크게 head와 body로 구성.
     
     </aside>
     
     - head안에는 페이지의 속성 정보를, body안에는 페이지의 내용을 담습니다.
     - head 안에 들어가는 대표적인 요소들: meta, script, link, title 등
-        
-        <aside>
-        👉 페이지의 속성을 정의하거나, 필요한 스크립트들을 부릅니다. 즉, 눈에 안 보이는 필요한 것들을 담는 것. 나중에 body 작업을 하면서 필요한 정보들을 넣어보겠습니다.
-        
-        </aside>
-        
+     
     - body 안에 들어가는 대표적인 요소들!
-        - **[코드스니펫] HTML기초**
+        - **[코드스니펫] HTML기초** 
             
             ```html
             <!DOCTYPE html>
@@ -79,51 +67,27 @@ comments: true
             
             </html>
             ```
-            
-        
-        <aside>
-        👉 이 외에도 아주 많으며, 개발자들도 모두 외우고 있지 않습니다. 필요할 때마다 찾아서 넣어보세요!
-        
-        </aside>
-        
-        <aside>
-        👉 **잠깐! 정렬의 중요성**
-        코드의 정렬이 제대로 되어있지 않으면, 코드의 생김새를 파악할 수 없어 오류를 해결하기가 무척 어려워집니다. Pycharm에서 **ctrl+alt+L** (맥은 cmd+alt+L) 로 자동정렬 기능을 사용해보세요.
-        
-        </aside>
         
 
-## **04. Quiz_간단한 로그인 페이지 만들어보기**
+## **간단한 로그인 페이지 만들어보기**
 
-- 1) ✍간단한 로그인 페이지 만들기
-    
-    <aside>
-    🔥 앞으로 실습이 필요한 부분이 나오면 "✍"모양으로 알려줄게요!
-    퀴즈설명 영상을 먼저 보고 → 정해진 시간동안 혼자 한다음 → 함께하기 영상을 보세요!
-    
-    </aside>
-    
-    - Q. 퀴즈설명
-        - 모습 보기
-            
-            ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6a2b76fd-9264-41c0-b0cc-2a44ad472624/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6a2b76fd-9264-41c0-b0cc-2a44ad472624/Untitled.png)
-            
+- ✍간단한 로그인 페이지 만들기
+- 
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>로그인페이지</title>
+</head>
+<body>
+<h1>로그인 페이지</h1>
+<p>ID: <input type="text"/></p>
+<p>PW: <input type="text"/></p>
+<button>로그인하기</button>
+</body>
+</html>
+
         
-        <aside>
-        👻 힌트: 위의 HTML기초에서 봤던 코드들을 적절히 조합해보세요!
-        ctrl+c,v 신공을 사용해보세요!
-        
-        </aside>
-        
-    - A. 함께하기(완성본)
-        
-        <aside>
-        💡 어때요, 할만했나요? 다만 조금씩 다른 방법으로 해결하셨더라도,
-        다음 강의 진행을 위해 아래 코드를 복사→붙여넣기 해주세요!
-        
-        </aside>
-        
-        - **[코드스니펫] 로그인HTML**
+        - **로그인HTML**
             
             ```html
             <!DOCTYPE html>
