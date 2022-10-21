@@ -97,20 +97,6 @@ comments: true
 
 - 1) ✍간단한 로그인 페이지 만들기
     
-```<!DOCTYPE html>
-            <html lang="en">
-            <head>
-                <meta charset="UTF-8">
-                <title>로그인페이지</title>
-            </head>
-            <body>
-                <h1>로그인 페이지</h1>
-                <p>ID: <input type="text"/></p>
-                <p>PW: <input type="text"/></p>
-                <button>로그인하기</button>
-            </body>
-            </html>```
-            
     <aside>
     🔥 앞으로 실습이 필요한 부분이 나오면 "✍"모양으로 알려줄게요!
     퀴즈설명 영상을 먼저 보고 → 정해진 시간동안 혼자 한다음 → 함께하기 영상을 보세요!
@@ -128,6 +114,20 @@ comments: true
         ctrl+c,v 신공을 사용해보세요!
         
         </aside>
+        
+         <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <title>로그인페이지</title>
+            </head>
+            <body>
+                <h1>로그인 페이지</h1>
+                <p>ID: <input type="text"/></p>
+                <p>PW: <input type="text"/></p>
+                <button>로그인하기</button>
+            </body>
+            </html>
         
     - A. 함께하기(완성본)
         
