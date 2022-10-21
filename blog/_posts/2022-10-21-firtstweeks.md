@@ -35,7 +35,7 @@ comments: true
 
 - **[코드스니펫] 로그인HTML**
             
-            ```html
+            html
             <!DOCTYPE html>
             <html lang="en">
             <head>
@@ -49,4 +49,4 @@ comments: true
                 <button>로그인하기</button>
             </body>
             </html>
-            ```
+            
