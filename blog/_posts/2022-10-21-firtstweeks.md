@@ -6,8 +6,6 @@ tags: [HTML, CSS]
 comments: true
 ---
 
-      <!DOCTYPE html>
-            <html lang="en">
             <head>
                 <meta charset="UTF-8">
                 <title>로그인페이지</title>
@@ -18,7 +16,7 @@ comments: true
                 <p>PW: <input type="text"/></p>
                 <button>로그인하기</button>
             </body>
-            </html>
+
 
 - **[코드스니펫] 로그인HTML**
             
