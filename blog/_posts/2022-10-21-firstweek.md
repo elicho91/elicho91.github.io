@@ -1,19 +1,19 @@
 ---
 layout: post
-title: 스파르타코딩클럽 웹개발 종합반
-subtitle: 1주차 - 1
+title: 스파르타코딩클럽 웹개발 종합반 1주차
+subtitle: 1-1
 tags: [HTML, CSS]
 comments: true
 ---
 <aside>
 
-## ** HTML, CSS 기본 내용**
+## **HTML, CSS 기본 내용**
 
 </aside>
 
 - 1) HTML과 CSS의 개념
     
-    <aside>
+ <aside>
     👉 HTML은 뼈대, CSS는 꾸미기!
     
     </aside>
@@ -86,10 +86,7 @@ comments: true
         ## **04. Quiz_간단한 로그인 페이지 만들어보기**
 
 - 1) ✍간단한 로그인 페이지 만들기
-            
-        
-    - A. 함께하기(완성본)
-        
+- 
         <html lang="en">
             <head>
                 <meta charset="UTF-8">
@@ -102,8 +99,6 @@ comments: true
                 <button>로그인하기</button>
             </body>
             </html>
-            
-        - **로그인HTML**
             
             ```html
             <!DOCTYPE html>
