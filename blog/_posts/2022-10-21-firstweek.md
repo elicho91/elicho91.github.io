@@ -2,321 +2,11 @@
 layout: post
 title: 스파르타코딩클럽 웹개발 종합반
 subtitle: 1주차 - 1
-tags: [Cloud-Barista, CB-Tumblebug, Multi-cloud, seokho son, open source]
+tags: [HTML, CSS]
 comments: true
 ---
 
-**[수업 목표]**
-
-1. 서버와 클라이언트의 역할에 대해 이해한다.
-2. HTML, CSS의 기초 지식을 이해한다. 부트스트랩을 가져다 쓸 줄 안다!
-3. Javascript 기초 문법을 익힌다.
-
-## **01. 1주차 오늘 배울 것**
-
-- 1) 서버/클라이언트/웹의 동작 개념
-    - 1. 네이버 웹페이지를 해킹해보자!
-        
-        <aside>
-        👉 크롬 창에서 보이는 웹페이지는 어떤 원리로 보여지는 것일까요?
-        원리를 알기 위해서, 일단 해킹부터 해보죠! (응?)
-        
-        함께 해보아요 → '네이버뉴스'라고 쓰인 곳을 원하는 문구로 바꾸어보죠!
-        
-        </aside>
-        
-        ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b53412db-f8d3-4aac-a80b-159515506ca4/Untitled.png)
-        
-        <aside>
-        👉 앗! 바뀌었다!
-        
-        </aside>
-        
-        ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f12fd45d-593f-4b63-925c-aa75e2c1624b/Untitled.png)
-        
-    - 2. 웹의 동작 개념 (HTML을 받는 경우)
-        
-        <aside>
-        👉 네! 우리가 보는 웹페이지는 모두 서버에서 미리 준비해두었던 것을 "받아서",
-        "그려주는" 것입니다. 즉, 브라우저가 하는 일은 1) 요청을 보내고, 2) 받은 HTML 파일을 그려주는 일 뿐이죠.
-        
-        </aside>
-        
-        <aside>
-        👉 근데, 1)은 어디에 요청을 보내냐구요? 좋은 질문입니다. 서버가 만들어 놓은 "API"라는 창구에 미리 정해진 약속대로 요청을 보내는 것이랍니다.
-        
-        예) https://naver.com/
-        → 이것은 "naver.com"이라는 이름의 서버에 있는, "/" 창구에 요청을 보낸 것!
-        
-        </aside>
-        
-        ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f4770f1b-1509-4e69-b971-1cd5ceb258a6/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f4770f1b-1509-4e69-b971-1cd5ceb258a6/Untitled.png)
-        
-    - 3. 웹의 동작 개념 (데이터만 받는 경우)
-        
-        <aside>
-        👉 앗, 그럼 항상 이렇게 HTML만 내려주냐구요?
-        아뇨! 데이터만 내려 줄 때가 더~ 많아요.
-        
-        사실 HTML도 줄글로 쓰면 이게 다 '데이터'아닌가요?
-        
-        </aside>
-        
-        <aside>
-        👉 자, 공연 티켓을 예매하고 있는 상황을 상상해봅시다!
-        좌석이 차고 꺼질때마다 보던 페이지가 리프레시 되면 난감하겠죠ㅠ?
-        
-        이럴 때! 데이터만 받아서 받아 끼우게 된답니다.
-        
-        </aside>
-        
-        ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e495bccc-7a19-40e6-8669-0e59d5506bfd/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e495bccc-7a19-40e6-8669-0e59d5506bfd/Untitled.png)
-        
-        <aside>
-        👉 데이터만 내려올 경우는, 이렇게 생겼어요!
-        (소곤소곤) 이런 생김새를 JSON 형식이라고 한답니다.
-        
-        </aside>
-        
-        ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/00ffef83-0d54-463d-b164-70f9b60f4b62/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/00ffef83-0d54-463d-b164-70f9b60f4b62/Untitled.png)
-        
-    - 4. 1~5주차에 배울 순서!
-        - 1주차: HTML, CSS, Javascript
-            
-            <aside>
-            👉 오늘은 HTML과 CSS를 배우는 날! 즉, 4주차에 내려줄 HTML파일을 미리 만들어 두는 과정입니다. + 또, 2주차에 자바스크립트를 능숙하게 다루기 위해서, 오늘 문법을 먼저 조금 배워둘게요!
-            
-            </aside>
-            
-            ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/77b296a7-6138-40f9-9537-1a86789ca735/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/77b296a7-6138-40f9-9537-1a86789ca735/Untitled.png)
-            
-        - 2주차: jQuery, Ajax, API
-            
-            <aside>
-            👉 오늘은 HTML파일을 받았다고 가정하고, Javascript로 서버에 데이터를 요청하고 받는 방법을 배워볼거예요
-            
-            </aside>
-            
-            ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6434b1c6-1baf-4746-a253-19cd70fd5825/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6434b1c6-1baf-4746-a253-19cd70fd5825/Untitled.png)
-            
-        - 3주차: Python, 크롤링, mongoDB
-            
-            <aside>
-            👉 오늘은 드디어 '파이썬'을 배울거예요. 먼저 문법을 연습하고, 라이브러리를 활용하여 네이버 영화목록을 쫙 가져와보겠습니다. (기대되죠!)
-            +
-            그리고, 우리의 인생 첫 데이터베이스. mongoDB를 다뤄볼게요!
-            
-            </aside>
-            
-            ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/078af39a-5f86-48de-9095-afd2ee95eb7b/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/078af39a-5f86-48de-9095-afd2ee95eb7b/Untitled.png)
-            
-        - 4주차: 미니프로젝트1, 미니프로젝트2
-            
-            <aside>
-            👉 오늘은 서버를 만들어봅니다! HTML과 mongoDB까지 연동하여,
-            미니프로젝트1, 2를 완성해보죠! 굉장히 재미있을 거예요!
-            
-            </aside>
-            
-            ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/cffe5c7b-2bce-4da5-b396-14f3481cd89f/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/cffe5c7b-2bce-4da5-b396-14f3481cd89f/Untitled.png)
-            
-            <aside>
-            👉 나중에 또 이야기하겠지만 헷갈리면 안되는 것!
-            우리는 컴퓨터가 한 대 잖아요... 그래서 같은 컴퓨터에다 서버도 만들고, 요청도 할 거예요. 즉, 클라이언트 = 서버가 되는 것이죠.
-            
-            이것을 바로 "로컬 개발환경"이라고 한답니다! 그림으로 보면, 대략 이렇습니다.
-            
-            </aside>
-            
-            ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/04945ba3-ac4a-482e-9f77-a794981de558/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/04945ba3-ac4a-482e-9f77-a794981de558/Untitled.png)
-            
-        - 5주차: 미니프로젝트3, AWS
-            
-            <aside>
-            👉 오늘은 아직 익숙해지지 않았을 당신을 위해! 같은 난이도의 유사한 한 개의 프로젝트를 더 진행합니다.
-            
-            그치만 우리 컴퓨터를 24시간 돌려둘수는 없잖아요!
-            
-            그래서 두구두구.. 인생 첫 배포!를 해볼 예정입니다! 클라우드 환경에서 컴퓨터를 사고, 거기에 파일을 올려 실행해보겠습니다.
-            
-            </aside>
-            
-            ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8793b9cd-1f21-400e-a3ee-b8258e637e83/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8793b9cd-1f21-400e-a3ee-b8258e637e83/Untitled.png)
-            
-- 2) 1~5주차가 끝나면 만들게 되는 것들 - 구경하기!
-    - 스파르타피디아: [링크](http://spartacodingclub.shop/web/movie)를 눌러서 확인해보기
-    - 화성땅 공동구매: [링크](http://spartacodingclub.shop/web/mars)를 눌러서 확인해보기
-    - 버킷리스트: [링크](http://spartacodingclub.shop/web/bucket)를 눌러서 확인해보기
-    - (숙제) 팬명록: [링크](http://spartacodingclub.shop/web/homework)를 눌러서 확인해보기
-
-## 02. 필수 프로그램 설치
-
-- 1) Pycharm Professional 설치 가이드 **([다운로드 링크](https://www.jetbrains.com/pycharm/download/))**
-    
-    <aside>
-    👉 스파르타코딩클럽을 통해, 연 $89 상당의 **PyCharm Professional 버전을 4개월 간 무료로 사용**하실 수 있습니다!(YEAH~) 1주차 강의에서 활성화 프로모션 코드가 포함된 가이드 문서를 제공해드립니다.
-    
-    </aside>
-    
-    - **[코드스니펫] Pycharm Professional 설치 링크**
-        
-        ```csharp
-        https://www.jetbrains.com/pycharm/download/
-        ```
-        
-    - 아래 그림과 같이 Professional 버전을 다운로드 받은 후 **설치를 마무리**해주세요.
-    
-    ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/aa7e462b-13a1-4ae4-8f51-0f8311506337/_2020-06-07__12.18.58.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/aa7e462b-13a1-4ae4-8f51-0f8311506337/_2020-06-07__12.18.58.png)
-    
-    - **(Windows만)** 설치 중 Installation Options 는 아래와 같이 체크해주세요.
-        
-        ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b7a7a2e6-a451-4c1b-81ad-67ebad3c507f/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b7a7a2e6-a451-4c1b-81ad-67ebad3c507f/Untitled.png)
-        
-    
-- 2) JetBrains 회원가입 가이드 **([회원가입 링크](https://account.jetbrains.com/login))**
-    - **[코드스니펫] JetBrains 회원가입 링크**
-        
-        ```csharp
-        https://account.jetbrains.com/login
-        ```
-        
-    1. [**링크**](https://account.jetbrains.com/login)에 들어가 "Create JetBrains Account"에 아이디로 사용할 이메일을 입력합니다.
-        
-        ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/25829cb6-9221-49ca-8421-570a183af8a4/_2020-06-08__11.12.00.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/25829cb6-9221-49ca-8421-570a183af8a4/_2020-06-08__11.12.00.png)
-        
-    2. 발송 이메일을 확인하고, 해당 주소의 메일함에서 JetBrains의 메일을 클릭합니다.
-        
-        ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f9d364d5-f55b-4d71-ac73-53134a4f3bac/_2020-06-08__11.13.15.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f9d364d5-f55b-4d71-ac73-53134a4f3bac/_2020-06-08__11.13.15.png)
-        
-    3. "Confirm your account" 링크를 클릭하세요.
-        
-        ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5fd67631-9e23-4a73-afab-30e31f5d28b6/_2020-06-08__11.15.48.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5fd67631-9e23-4a73-afab-30e31f5d28b6/_2020-06-08__11.15.48.png)
-        
-    4. 웹페이지의 지시대로 회원 가입 절차를 마무리합니다.
-        
-        ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/07b0e88a-c717-4802-966a-87c2635288f8/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/07b0e88a-c717-4802-966a-87c2635288f8/Untitled.png)
-        
-- 3) PyCharm Professional 등록 가이드
-    
-    <aside>
-    👉 스파르타코딩클럽을 통해, 연 10만원 상당의 **PyCharm Professional 버전을 4개월 간 무료로 사용**하실 수 있습니다! (Yay! 소리질러~~~) 그럼 순서대로 차근차근 따라와주세요!
-    
-    </aside>
-    
-    1. 스파르타코딩클럽 가입에 사용한 이메일을 입력하시고, 본인의 파이참 라이센스 코드를 확인합니다. 👉 [**(코드확인 링크)**](http://spartacodingclub.shop/pycharm_license)
-        - **[코드스니펫] 코드확인 링크**
-            
-            ```csharp
-            http://spartacodingclub.shop/pycharm_license
-            ```
-            
-        
-        <aside>
-        🚨 **스파르타코딩클럽 가입**에 사용한 이메일을 입력해주세요!
-        
-        </aside>
-        
-        ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7dc5d1c5-394d-4785-b86f-9a882ea79615/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7dc5d1c5-394d-4785-b86f-9a882ea79615/Untitled.png)
-        
-    2. [**(젯브레인 링크)**](https://account.jetbrains.com/licenses)에 접속해서, 로그인을 완료합니다.
-        - **[코드스니펫] 로그인 링크**
-            
-            ```csharp
-            https://account.jetbrains.com/login
-            ```
-            
-        
-        <aside>
-        🚨 **젯브레인(JetBrains) 가입**에 사용한 이메일과 비밀번호를 입력해주세요!
-        
-        </aside>
-        
-        ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d3857c67-0eeb-43f5-919e-05d8f4073621/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d3857c67-0eeb-43f5-919e-05d8f4073621/Untitled.png)
-        
-    3. **Purchase Product license(s)**를 클릭하세요!
-        
-        ![image (2).png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/df21db0d-41c6-4d02-b831-00408c9030a7/image_(2).png)
-        
-    4. **PyCharm**의 오른쪽 끝에 있는 **Buy new license**를 클릭하세요!
-        
-        ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3a6a0bdc-9f22-4d63-aa62-16ef766a21f6/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3a6a0bdc-9f22-4d63-aa62-16ef766a21f6/Untitled.png)
-        
-    5. ✅  체크박스를 누르고, **PROCEED AS NEW CUSTOMER**를 클릭하세요.
-        
-        ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/06b73a14-f50f-41b5-a79f-edee24047257/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/06b73a14-f50f-41b5-a79f-edee24047257/Untitled.png)
-        
-    6. **Have a discount code?**를 클릭하세요! (거의 다왔어요 두구두구.. 🥰)
-        
-        ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5146d0bd-51cf-4866-ab2f-8f4ee70f1590/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5146d0bd-51cf-4866-ab2f-8f4ee70f1590/Untitled.png)
-        
-    7. 아까 1번에서 부여 받은 **파이참 라이센스 코드**를 입력하세요!
-        
-        ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/72d2b40e-f4bb-4309-9ffd-756ab8e2fedb/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/72d2b40e-f4bb-4309-9ffd-756ab8e2fedb/Untitled.png)
-        
-    8. Total이 **$0.00**으로 되었으면 완료! **PLACE ORDER**를 클릭해주세요!
-        
-        ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/17df0cfa-653e-408e-8c1d-14465b22eb21/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/17df0cfa-653e-408e-8c1d-14465b22eb21/Untitled.png)
-        
-    9. 자, 이제 **PyCharm Pro**를 실행하고, email / password를 입력하고 → Activate를 클릭!
-        
-        <aside>
-        🚨 **젯브레인(JetBrains) 가입**에 사용한 이메일과 비밀번호를 입력해주세요!
-        
-        </aside>
-        
-        ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2a78bcf4-f557-42cc-81c8-4467575fe94b/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2a78bcf4-f557-42cc-81c8-4467575fe94b/Untitled.png)
-        
-    10. 10초만 기다리면... → 짠! 설치가 모두 완료되었습니다! 🎉
-        
-        ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d5485720-57a5-4387-8207-c578941fb214/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d5485720-57a5-4387-8207-c578941fb214/Untitled.png)
-        
-    
-- 4) AWS 회원가입 하기
-    
-    <aside>
-    👉 AWS는 우리 수업 5주차 때, 배포를 위해 필요하답니다! 가입 승인에 시간이 소요될 수 있으니, 미리 회원가입만 해주세요!
-    
-    </aside>
-    
-    - **[코드스니펫] AWS 가입하기**
-        
-        ```csharp
-        [https://portal.aws.amazon.com/billing/signup#/start](https://portal.aws.amazon.com/billing/signup#/start)
-        ```
-        
-    - 가입: [https://portal.aws.amazon.com/billing/signup#/start](https://portal.aws.amazon.com/billing/signup#/start)
-    - 해외결제가 가능한 유효한 결제 수단을 넣어야 가입이 정상적으로 이루어집니다. Visa 또는 Master 겸용의 신용카드를 추천드립니다. 가입이 정상적으로 이루어지지 않을 경우 5주차에 수업을 진행할 수 없으므로 사전에 해외결제가 가능한지 반드시 확인 부탁드립니다.
-    - AWS는 개인에게 클라우드 환경의 가상서버를 제공합니다. 기본 사양의 서버(EC2)를 1년 동안 무료로 사용할 수 있습니다.
-    - 가입 시 결제된 금액은 다시 반환됩니다. (일종의 결제 테스트 목적)
-    - (←펼쳐보기!) 가입 후 아래와 같은 화면에 접속 하면 성공!
-        - [https://ap-northeast-2.console.aws.amazon.com/ec2/v2/home?region=ap-northeast-2](https://ap-northeast-2.console.aws.amazon.com/ec2/v2/home?region=ap-northeast-2#Instances:sort=instanceId)
-        
-        ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2e35085e-f594-428b-99ca-a28ea5f0036b/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2e35085e-f594-428b-99ca-a28ea5f0036b/Untitled.png)
-        
-        ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5fb4fa3a-ed0b-4877-a9b8-a6290bc60275/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5fb4fa3a-ed0b-4877-a9b8-a6290bc60275/Untitled.png)
-        
-- 5) 필독! 1년 후 자동결제 방지(AWS EC2)
-    
-    **EC2 서버를 아직 만들지 마세요!** 
-    
-    5주차에 함께 진행할 것이에요!
-    
-    혹시 미리 만들어버린 EC2 서버 종료하는 방법 (1년 후 자동결제 방지!)
-    
-    <aside>
-    💡 **중지 또는 종료하는 법. 무료 기간(1년) 후 결제가 되기 전에, 이렇게 종료하세요!**
-    
-    </aside>
-    
-    대상 인스턴스에 마우스 우클릭 > '인스턴스 상태' 를 클릭합니다. 중지 또는 종료 중 하나를 클릭하면 명령을 실행합니다.
-    
-    ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4cd9daaf-4901-4492-881f-aa3dc6560646/_2020-04-29__11.15.14.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4cd9daaf-4901-4492-881f-aa3dc6560646/_2020-04-29__11.15.14.png)
-    
-
-## **03. HTML, CSS 기본 내용**
-
-<aside>
-💡 바탕화면에 `sparta` 폴더 → `frontend` 폴더를 만들고 시작할게요!
+## ** HTML, CSS 기본 내용**
 
 </aside>
 
@@ -345,7 +35,7 @@ comments: true
         </aside>
         
     - body 안에 들어가는 대표적인 요소들!
-        - **[코드스니펫] HTML기초**
+        - **HTML기초**
             
             ```html
             <!DOCTYPE html>
@@ -398,4 +88,755 @@ comments: true
         코드의 정렬이 제대로 되어있지 않으면, 코드의 생김새를 파악할 수 없어 오류를 해결하기가 무척 어려워집니다. Pycharm에서 **ctrl+alt+L** (맥은 cmd+alt+L) 로 자동정렬 기능을 사용해보세요.
         
         </aside>
+        ## **04. Quiz_간단한 로그인 페이지 만들어보기**
+
+- 1) ✍간단한 로그인 페이지 만들기
+    
+    <aside>
+    🔥 앞으로 실습이 필요한 부분이 나오면 "✍"모양으로 알려줄게요!
+    퀴즈설명 영상을 먼저 보고 → 정해진 시간동안 혼자 한다음 → 함께하기 영상을 보세요!
+    
+    </aside>
+    
+    - Q. 퀴즈설명
+        - 모습 보기
+            
+            ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6a2b76fd-9264-41c0-b0cc-2a44ad472624/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6a2b76fd-9264-41c0-b0cc-2a44ad472624/Untitled.png)
+            
+        
+        <aside>
+        👻 힌트: 위의 HTML기초에서 봤던 코드들을 적절히 조합해보세요!
+        ctrl+c,v 신공을 사용해보세요!
+        
+        </aside>
+        
+    - A. 함께하기(완성본)
+        
+        <aside>
+        💡 어때요, 할만했나요? 다만 조금씩 다른 방법으로 해결하셨더라도,
+        다음 강의 진행을 위해 아래 코드를 복사→붙여넣기 해주세요!
+        
+        </aside>
+        
+        - **[코드스니펫] 로그인HTML**
+            
+            ```html
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <title>로그인페이지</title>
+            </head>
+            <body>
+                <h1>로그인 페이지</h1>
+                <p>ID: <input type="text"/></p>
+                <p>PW: <input type="text"/></p>
+                <button>로그인하기</button>
+            </body>
+            </html>
+            ```
+            
+    
+
+## **05. CSS 기초**
+
+- 1) HTML 부모-자식 구조 살펴보기
+    
+    <aside>
+    👉 html 태그는, "누가 누구 안에 있느냐"를 이해하는 것이 가장 중요합니다. 나를 감싸고 있는 태그가 바뀌면, 그 안의 내용물도 모두 영향을 받지요!
+    
+    </aside>
+    
+    - 빨간색 div 안에, 초록색/파란색 div가 들어있습니다. 아래와 같은 상황에서 빨간색 div를 가운데로 옮기면, 내용물인 초록/파란 div도 모두 함께 이동하겠죠!
+    - 즉, 박스를 옮기면 안의 내용물도 함께 옮겨지는 것과 같은 원리입니다.
+    - 같은 원리로, 초록 div의 글씨색을 바꾸면, 나는버튼1의 글씨색도 바뀐답니다!
+        
+        ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0aa008bc-3f75-4e6a-a9a2-03eaa86551ba/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0aa008bc-3f75-4e6a-a9a2-03eaa86551ba/Untitled.png)
+        
+- 2) CSS 기초
+    - CSS는 어떻게 사용하나요?
+        
+        <aside>
+        👉 <head> ~ </head> 안에 <style> ~ </style> 로 공간을 만들어 작성합니다.
+        아래 코드를 통해 간단한 사용 방법을 알아봅니다.
+        
+        mytitle라는 클래스를 가리킬 때, .mytitle { ... } 라고 써줘야 하는 것을 꼭! 기억하세요!
+        
+        </aside>
+        
+    - 모든 CSS들을 다 알 수는 없겠죠~~ 오늘 쓰는 것만 알아도 굿!
+    나머지는 검색해서 쓰시면 된답니다~!
+        
+        <aside>
+        👉 배경관련
+        background-color
+        background-image
+        background-size
+        
+        사이즈
+        width
+        height
+        
+        폰트
+        font-size
+        font-weight
+        font-family
+        color
+        
+        간격
+        margin
+        padding
+        
+        </aside>
+        
+
+## **06. 자주 쓰이는 CSS 연습하기 (1)**
+
+- 1) 자주 쓰이는 CSS 연습하기
+    
+    <aside>
+    👉 [연습할 것들]
+    h1, h5, background-image, background-size, background-position
+    color, width, height, border-radius, margin, padding
+    
+    </aside>
+    
+    - 튜터와 함께 아래와 같은 화면을 만들어볼까요?
+        
+        ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4aafd1d6-0983-41db-8c99-c25056413267/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4aafd1d6-0983-41db-8c99-c25056413267/Untitled.png)
+        
+        <aside>
+        💡 margin과 padding      ( → 헷갈리지 말기!)
+         - margin은 바깥 여백을, padding은 내 안쪽 여백을
+         - div에 색깔을 넣고, 직접 사용해서 차이를 비교해보세요!
+        
+        </aside>
+        
+        - **[코드스니펫] 이미지URL**
+            
+            ```html
+            [https://www.ancient-origins.net/sites/default/files/field/image/Agesilaus-II-cover.jpg](https://www.ancient-origins.net/sites/default/files/field/image/Agesilaus-II-cover.jpg)
+            ```
+            
+        
+        ```html
+        <!DOCTYPE html>
+        <html lang="en">
+        
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>스파르타코딩클럽 | 로그인페이지</title>
+            <style>
+                .mytitle {
+                    color: white;
+                    width: 300px;
+                    height: 200px;
+                    background-image: url('https://www.ancient-origins.net/sites/default/files/field/image/Agesilaus-II-cover.jpg');
+                    background-position: center;
+                    background-size: cover;
+                    
+                    border-radius: 10px;
+                    text-align: center;
+                    padding-top: 40px;
+                }
+            </style>
+        </head>
+        
+        <body>
+            <div class="mytitle">
+                <h1>로그인 페이지</h1>
+                <h5>아이디, 비밀번호를 입력해주세요</h5>
+            </div>
+            <div>
+                <p>
+                    ID: <input type="text" />
+                </p>
+                <p>
+                    PW: <input type="password" />
+                </p>
+            </div>
+            <button>로그인하기</button>
+        </body>
+        </body>
+        
+        </html>
+        ```
+        
+    
+
+## **07. 자주 쓰이는 CSS 연습하기 (2)**
+
+- 만들어둔 로그인 화면을 가운데로 가져오려면?
+    
+    <aside>
+    👉 width를 주고, margin: auto를 사용하자!
+    그래도 안되면? display:block을 추가!
+    
+    </aside>
+    
+    ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/32e462d8-8894-4bb5-9375-72e1d4285c97/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/32e462d8-8894-4bb5-9375-72e1d4285c97/Untitled.png)
+    
+    ```html
+    <!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>스파르타코딩클럽 | 로그인페이지</title>
+        <style>
+            .mytitle {
+                color: white;
+                width: 300px;
+                height: 200px;
+                background-image: url('https://www.ancient-origins.net/sites/default/files/field/image/Agesilaus-II-cover.jpg');
+                background-position: center;
+                background-size: cover;
+    
+                border-radius: 10px;
+                text-align: center;
+                padding-top: 40px;
+            }
+    
+            .wrap {
+                margin: 10px auto;
+                width: 300px;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div class="wrap">
+            <div class="mytitle">
+                <h1>로그인 페이지</h1>
+                <h5>아이디, 비밀번호를 입력해주세요</h5>
+            </div>
+            <div>
+                <p>
+                    ID: <input type="text" />
+                </p>
+                <p>
+                    PW: <input type="password" />
+                </p>
+            </div>
+            <button>로그인하기</button>
+        </div>
+    </body>
+    </body>
+    
+    </html>
+    ```
+    
+
+## **08. 폰트, 주석, 파일분리**
+
+- 1) 구글 웹폰트 입히기
+    - 구글 웹폰트
+        - **[코드스니펫] 구글웹폰트**
+            
+            ```python
+            [https://fonts.google.com/?subset=korean](https://fonts.google.com/?subset=korean)
+            ```
+            
+        
+        (1) 마음에 드는 폰트를 클릭합니다.
+        
+        ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3206d560-88dc-4251-91ad-810531d49dd4/Untitled.png)
+        
+        (2) [ + Select this style ]을 클릭합니다.
+        
+        ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3a9f3121-f16a-4df4-8746-5f43b9d9c966/Untitled.png)
+        
+        (3) 우측 상단의 모음 아이콘을 클릭합니다.
+        
+        ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/652c2629-e89c-41ee-a411-251ab3babe6c/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/652c2629-e89c-41ee-a411-251ab3babe6c/Untitled.png)
+        
+        (4) Embed 탭을 클릭합니다.
+        
+        ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/29b811c0-5699-4135-b4e4-7e7076e74236/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/29b811c0-5699-4135-b4e4-7e7076e74236/Untitled.png)
+        
+        (5) link 태그를 복사해서 <head> ~ </head>사이에, CSS를 복사해서 <style> ~ </style> 사이에 넣습니다.
+        
+        ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/216f26e9-7bad-4209-b002-d9fdc00ccc41/Untitled.png)
+        
+    - Jua라는 폰트를 예제로 추가해보면, 아래와 같은 코드를 복사하면 됩니다.
+        
+        ```html
+        <!-- HTML에 이 부분을 추가하고 -->
+        <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+        ```
+        
+        ```css
+        /* CSS에 이 부분을 추가하면 완성! */
+        * {
+        	font-family: 'Jua', sans-serif;
+        }
+        ```
+        
+- 2) 꿀팁! 주석 달기
+    
+    <aside>
+    👉 주석은 언제 사용하나요?
+    1) 필요없어진 코드를 삭제하는 대신 임시로 작동하지 못하게 하고 싶을 때
+    2) 코드에 대한 간단한 설명을 붙여두고 싶을 때 사용합니다.
+    
+    주석을 붙여놓으면, 브라우저/컴퓨터가 읽지 않아요.
+    즉, 개발자 본인 또는 동료를 위해 붙여두는 것!
+    
+    </aside>
+    
+    - 단축키: 주석처리하고 싶은 라인들을 선택 → **ctrl(또는 command) + /  (슬래시)**
+- 3) CSS 파일 분리
+    
+    <aside>
+    👉 <style> ~ </style> 부분이 너무 길어지면, 보기가 어렵겠죠? 이럴 땐 아래와 같이 파일을 분리해둘 수 있습니다.
+    
+    지금은 css가 간단하고, 한 파일에서 보는 게 편하기 때문에 일단은 패스!
+    
+    </aside>
+    
+    <aside>
+    🔥 **이 부분은 튜터님만 혼자하면서 보여드릴게요! 여러분은 구경만!**
+    
+    </aside>
+    
+    ```html
+    <!-- style.css 파일을 같은 폴더에 만들고, head 태그에서 불러오기 -->
+    <link rel="stylesheet" type="text/css" href = "(css파일이름).css">
+    ```
+    
+
+## 09**. 부트스트랩, 예쁜 CSS 모음집**
+
+- 1) bootstrap이란?
+    - 부트스트랩이란? 예쁜 CSS를 미리 모아둔 것 (CSS를 다룰 줄 아는 것과, 미적 감각을 발휘하여 예쁘게 만드는 것은 다른 이야기이기 때문에, 현업에서는 미리 완성된 부트스트랩을 가져다 쓰는 경우가 많습니다.)
+- 2) bootstrap - 시작 템플릿
+    
+    <aside>
+    👉 남이 미리 작성한 CSS를 내 HTML 파일에 적용한다는 점에서, bootstrap 적용은 CSS 파일 분리와 원리가 동일합니다. (아까 튜터님의 시범을 기억하시죠!)
+    다만, CSS의 파일이 인터넷 어딘가에 있다는 점이 다를 뿐입니다.
+    
+    </aside>
+    
+    - 아래 파일을 복사해서 새로운 HTML 파일을 하나 만들고, 시작해보아요
+    - **[코드스니펫] 부트스트랩 시작 템플릿**
+        
+        ```html
+        <!doctype html>
+        <html lang="en">
+        
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+                integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+                crossorigin="anonymous"></script>
+        
+            <title>스파르타코딩클럽 | 부트스트랩 연습하기</title>
+        </head>
+        
+        <body>
+            <h1>이걸로 시작해보죠!</h1>
+        </body>
+        
+        </html>
+        ```
+        
+    - **[코드스니펫] 부트스트랩 컴포넌트 5.0**
+        
+        ```html
+        https://getbootstrap.com/docs/5.0/components/buttons/
+        ```
+        
+    
+    <aside>
+    👉 예쁜 버튼이 생겼습니다! (부트스트랩이 미리 css를 작성해뒀기 때문)
+    즉, btn 과, btn-primary 라는 class를 미리 정의해둔 것이죠
+    
+    </aside>
+    
+    - <h1>~</h1> 자리 아래 코드를 넣어봅니다.
+
+## 10**. CSS 꿀팁 한번 더 배우기**
+
+- Bootstrap을 쓰기 전에 - CSS 꿀팁 한번 더 배우기!
+    
+    <aside>
+    👉 최종적으로 만들 것 구경하기!
+    
+    </aside>
+    
+    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/127e5a66-725a-4995-a0fe-bf1e01e0516d/Untitled.png)
+    
+    - **[코드스니펫] 상어 배경**
+        
+        ```csharp
+        https://movie-phinf.pstatic.net/20210715_95/1626338192428gTnJl_JPEG/movie_image.jpg
+        ```
+        
+    - **[코드스니펫] 전체 코드**
+        
+        ```csharp
+        <!doctype html>
+        <html lang="en">
+        
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+                integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+                crossorigin="anonymous"></script>
+        
+            <title>스파르타 피디아</title>
+        
+            <style>
+                .mytitle {
+                    width: 100%;
+                    height: 250px;
+        
+                    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://movie-phinf.pstatic.net/20210715_95/1626338192428gTnJl_JPEG/movie_image.jpg');
+                    background-position: center;
+                    background-size: cover;
+        
+                    color: white;
+        
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                }
+                .mytitle > button {
+                    width: 200px;
+                    height: 50px;
+        
+                    background-color: transparent;
+                    color: white;
+        
+                    border-radius: 50px;
+                    border: 1px solid white;
+        
+                    margin-top: 10px;
+                }
+        
+                .mytitle > button:hover {
+                    border: 2px solid white;
+                }
+            </style>
+        </head>
+        
+        <body>
+            <div class="mytitle">
+                <h1>내 생애 최고의 영화들</h1>
+                <button>영화 기록하기</button>
+            </div>
+        </body>
+        
+        </html>
+        ```
+        
+
+## 11**. CSS 꿀팁-폰트넣기**
+
+- 폰트 넣기
+    
+    <aside>
+    👉 `Gowun Dodum` 체를 써보겠습니다!
+    
+    </aside>
+    
+    - **[코드스니펫] 구글폰트 link**
+        
+        ```jsx
+        <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+        ```
+        
+    - **[코드스니펫] 구글폰트 css**
+        
+        ```css
+        * {
+            font-family: 'Gowun Dodum', sans-serif;
+        }
+        ```
+        
+    - **[코드스니펫] 이미지 어둡게 하기**
+        
+        ```csharp
+        linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))
+        ```
+        
+    - 아래를 찾아 붙여 넣으면 완성!
+        
+        ```jsx
+        <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+        ```
+        
+        ```css
+        * {
+            font-family: 'Gowun Dodum', sans-serif;
+        }
+        ```
+        
+
+## 12**. 본격 부트스트랩 써보기**
+
+- 1) Bootstrap 본격적으로 써보기
+    
+    <aside>
+    👉 남이 만들어 둔 것을 쓸 때는 잘 찾아다가 조금씩만 고쳐서 쓰는 게 답입니다!
+    
+    </aside>
+    
+    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e44204ca-28c5-4333-82b3-401badc3d69f/Untitled.png)
+    
+    1. 카드 복사해서 붙여넣기
+        - Card 카테고리에서 여러개 있는 Card 를 클릭!
+    2. 이미지 넣고, 개수 조절하기
+        - `row-cols-md-3` → `row-cols-md-4` 로 바꾸기
+        - **[코드스니펫] 포스터이미지**
+            
+            ```csharp
+            https://movie-phinf.pstatic.net/20210728_221/1627440327667GyoYj_JPEG/movie_image.jpg
+            ```
+            
+    3. 별 넣고, 코멘트 달기
+        - <p> 태그를 활용합니다. 코멘트는 class를 줘서 회색 글씨로!
+        - **[코드스니펫] 별 표기**
+            
+            ```csharp
+            ⭐⭐⭐
+            ```
+            
+        - **[코드스니펫] 꿀팁 - 이모티콘 모음**
+            
+            ```csharp
+            https://kr.piliapp.com/facebook-symbols/
+            ```
+            
+
+## **13. Quiz_포스팅박스를 완성하기!**
+
+- 1) ✍포스팅 박스를 넣어보기 (20분)
+    - Q. 퀴즈설명: 아래 모양을 만들어보세요!
+        
+        ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0bce3fe1-e9df-4259-a3a7-a1cdfffd147f/Untitled.png)
+        
+        <aside>
+        👻 힌트: 아래 순서대로 만들어보세요!
+        
+        </aside>
+        
+        1. 우선 큰 박스 먼저 만들기 (함께)
+            
+            → 그림자 효과: `box-shadow: 0px 0px 3px 0px gray;`
+            
+            → 안쪽으로 띄우기: `padding: 20px;`
+            
+        2. 영화 URL
+            
+            → Forms 의 Floating Labels 참고
+            
+        3. 별점 박스
+            
+            → Input group의 Custom forms 참고
+            
+        4. 코멘트 URL
+            
+            → Forms 의 Floating Labels의 Textareas 참고
+            
+        5. 기록하기, 닫기 버튼
+            
+            → Button 두 개를 묶을 div를 만들어 `display:flex` 주기 (네 줄!)
+            
+            → Buttons 참고
+            
+    - A. 함께하기(완성본)
+        - **[코드스니펫] 포스팅박스까지(완성)**
+            
+            ```html
+            <!doctype html>
+            <html lang="en">
+            
+            <head>
+                <meta charset="utf-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+                      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+                        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+                        crossorigin="anonymous"></script>
+            
+                <title>스파르타 피디아</title>
+            
+                <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+            
+                <style>
+                    * {
+                        font-family: 'Gowun Dodum', sans-serif;
+                    }
+            
+                    .mytitle {
+                        width: 100%;
+                        height: 250px;
+            
+                        background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://movie-phinf.pstatic.net/20210715_95/1626338192428gTnJl_JPEG/movie_image.jpg');
+                        background-position: center;
+                        background-size: cover;
+            
+                        color: white;
+            
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                    }
+            
+                    .mytitle > button {
+                        width: 200px;
+                        height: 50px;
+            
+                        background-color: transparent;
+                        color: white;
+            
+                        border-radius: 50px;
+                        border: 1px solid white;
+            
+                        margin-top: 10px;
+                    }
+            
+                    .mytitle > button:hover {
+                        border: 2px solid white;
+                    }
+            
+                    .mycomment {
+                        color: gray;
+                    }
+            
+                    .mycards {
+                        margin: 20px auto 0px auto;
+                        width: 95%;
+                        max-width: 1200px;
+                    }
+            
+                    .mypost {
+                        width: 95%;
+                        max-width: 500px;
+                        margin: 20px auto 0px auto;
+                        padding: 20px;
+                        box-shadow: 0px 0px 3px 0px gray;
+                    }
+            
+                    .mybtns {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: center;
+            
+                        margin-top: 20px;
+                    }
+                    .mybtns > button {
+                        margin-right: 10px;
+                    }
+                </style>
+            </head>
+            
+            <body>
+            <div class="mytitle">
+                <h1>내 생애 최고의 영화들</h1>
+                <button>영화 기록하기</button>
+            </div>
+            <div class="mypost">
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                    <label for="floatingInput">영화URL</label>
+                </div>
+                <div class="input-group mb-3">
+                    <label class="input-group-text" for="inputGroupSelect01">별점</label>
+                    <select class="form-select" id="inputGroupSelect01">
+                        <option selected>-- 선택하기 --</option>
+                        <option value="1">⭐</option>
+                        <option value="2">⭐⭐</option>
+                        <option value="3">⭐⭐⭐</option>
+                        <option value="4">⭐⭐⭐⭐</option>
+                        <option value="5">⭐⭐⭐⭐⭐</option>
+                    </select>
+                </div>
+                <div class="form-floating">
+                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                              style="height: 100px"></textarea>
+                    <label for="floatingTextarea2">코멘트</label>
+                </div>
+                <div class="mybtns">
+                    <button type="button" class="btn btn-dark">기록하기</button>
+                    <button type="button" class="btn btn-outline-dark">닫기</button>
+                </div>
+            </div>
+            <div class="mycards">
+                <div class="row row-cols-1 row-cols-md-4 g-4">
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="https://movie-phinf.pstatic.net/20210728_221/1627440327667GyoYj_JPEG/movie_image.jpg"
+                                 class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">영화 제목이 들어갑니다</h5>
+                                <p class="card-text">여기에 영화에 대한 설명이 들어갑니다.</p>
+                                <p>⭐⭐⭐</p>
+                                <p class="mycomment">나의 한줄 평을 씁니다</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="https://movie-phinf.pstatic.net/20210728_221/1627440327667GyoYj_JPEG/movie_image.jpg"
+                                 class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">영화 제목이 들어갑니다</h5>
+                                <p class="card-text">여기에 영화에 대한 설명이 들어갑니다.</p>
+                                <p>⭐⭐⭐</p>
+                                <p class="mycomment">나의 한줄 평을 씁니다</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="https://movie-phinf.pstatic.net/20210728_221/1627440327667GyoYj_JPEG/movie_image.jpg"
+                                 class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">영화 제목이 들어갑니다</h5>
+                                <p class="card-text">여기에 영화에 대한 설명이 들어갑니다.</p>
+                                <p>⭐⭐⭐</p>
+                                <p class="mycomment">나의 한줄 평을 씁니다</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="https://movie-phinf.pstatic.net/20210728_221/1627440327667GyoYj_JPEG/movie_image.jpg"
+                                 class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">영화 제목이 들어갑니다</h5>
+                                <p class="card-text">여기에 영화에 대한 설명이 들어갑니다.</p>
+                                <p>⭐⭐⭐</p>
+                                <p class="mycomment">나의 한줄 평을 씁니다</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </body>
+            
+            </html>
+            ```
+            
+- 2) 약간의 모바일 처리를 해두기
 
