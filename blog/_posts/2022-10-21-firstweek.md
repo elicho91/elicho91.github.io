@@ -97,7 +97,7 @@ comments: true
 
 - 1) ✍간단한 로그인 페이지 만들기
     
-<!DOCTYPE html>
+```<!DOCTYPE html>
             <html lang="en">
             <head>
                 <meta charset="UTF-8">
@@ -109,7 +109,7 @@ comments: true
                 <p>PW: <input type="text"/></p>
                 <button>로그인하기</button>
             </body>
-            </html>
+            </html>```
             
     <aside>
     🔥 앞으로 실습이 필요한 부분이 나오면 "✍"모양으로 알려줄게요!
