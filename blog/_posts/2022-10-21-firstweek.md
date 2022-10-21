@@ -97,7 +97,7 @@ comments: true
 
 - 1) ✍간단한 로그인 페이지 만들기
     
-      <!DOCTYPE html>
+<!DOCTYPE html>
             <html lang="en">
             <head>
                 <meta charset="UTF-8">
