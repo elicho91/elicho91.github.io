@@ -8,6 +8,11 @@ comments: true
 
 ## **03. HTML, CSS 기본 내용**
 
+<aside>
+💡 바탕화면에 `sparta` 폴더 → `frontend` 폴더를 만들고 시작할게요!
+
+</aside>
+
 - 1) HTML과 CSS의 개념
     
     <aside>
@@ -33,7 +38,7 @@ comments: true
         </aside>
         
     - body 안에 들어가는 대표적인 요소들!
-        - **HTML기초**
+        - **[코드스니펫] HTML기초**
             
             ```html
             <!DOCTYPE html>
@@ -88,22 +93,37 @@ comments: true
         </aside>
         
 
-## **✍간단한 로그인 페이지 만들기**
+## **04. Quiz_간단한 로그인 페이지 만들어보기**
 
-            html
-            <!DOCTYPE html>
-            <html lang="en">
-            <head>
-                <meta charset="UTF-8">
-                <title>로그인페이지</title>
-            </head>
-            <body>
-                <h1>로그인 페이지</h1>
-                <p>ID: <input type="text"/></p>
-                <p>PW: <input type="text"/></p>
-                <button>로그인하기</button>
-            </body>
-            </html>
+- 1) ✍간단한 로그인 페이지 만들기
+    
+    <aside>
+    🔥 앞으로 실습이 필요한 부분이 나오면 "✍"모양으로 알려줄게요!
+    퀴즈설명 영상을 먼저 보고 → 정해진 시간동안 혼자 한다음 → 함께하기 영상을 보세요!
+    
+    </aside>
+    
+    - Q. 퀴즈설명
+        - 모습 보기
+            
+            ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6a2b76fd-9264-41c0-b0cc-2a44ad472624/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6a2b76fd-9264-41c0-b0cc-2a44ad472624/Untitled.png)
+            
+        
+        <aside>
+        👻 힌트: 위의 HTML기초에서 봤던 코드들을 적절히 조합해보세요!
+        ctrl+c,v 신공을 사용해보세요!
+        
+        </aside>
+        
+    - A. 함께하기(완성본)
+        
+        <aside>
+        💡 어때요, 할만했나요? 다만 조금씩 다른 방법으로 해결하셨더라도,
+        다음 강의 진행을 위해 아래 코드를 복사→붙여넣기 해주세요!
+        
+        </aside>
+        
+        - **[코드스니펫] 로그인HTML**
             
             ```html
             <!DOCTYPE html>
@@ -1727,3 +1747,112 @@ comments: true
 ## HW. 1주차 숙제 해설
 
 - **[코드스니펫] 1주차 숙제 답안 코드**
+    
+    ```html
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    
+        <title>초미니홈피 - 팬명록</title>
+    
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap" rel="stylesheet">
+        <style>
+            * {
+                font-family: 'Noto Serif KR', serif;
+            }
+            .mypic {
+                width: 100%;
+                height: 300px;
+    
+                background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://cdn.topstarnews.net/news/photo/201807/456143_108614_510.jpg');
+                background-position: center 30%;
+                background-size: cover;
+    
+                color: white;
+    
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+    
+            .mypost {
+                width: 95%;
+                max-width: 500px;
+                margin: 20px auto 20px auto;
+    
+                box-shadow: 0px 0px 3px 0px black;
+                padding: 20px;
+            }
+    
+            .mypost > button {
+                margin-top: 15px;
+            }
+    
+            .mycards {
+                width: 95%;
+                max-width: 500px;
+                margin: auto;
+            }
+    
+            .mycards > .card {
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="mypic">
+            <h1>십센치(10cm) 팬명록</h1>
+        </div>
+        <div class="mypost">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="name" placeholder="url">
+                <label for="floatingInput">닉네임</label>
+            </div>
+            <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here" id="comment"
+                    style="height: 100px"></textarea>
+                <label for="floatingTextarea2">응원댓글</label>
+            </div>
+            <button onclick="save_comment()" type="button" class="btn btn-dark">응원 남기기</button>
+        </div>
+        <div class="mycards" id="comment-list">
+            <div class="card">
+                <div class="card-body">
+                    <blockquote class="blockquote mb-0">
+                        <p>새로운 앨범 너무 멋져요!</p>
+                        <footer class="blockquote-footer">호빵맨</footer>
+                    </blockquote>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <blockquote class="blockquote mb-0">
+                        <p>새로운 앨범 너무 멋져요!</p>
+                        <footer class="blockquote-footer">호빵맨</footer>
+                    </blockquote>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <blockquote class="blockquote mb-0">
+                        <p>새로운 앨범 너무 멋져요!</p>
+                        <footer class="blockquote-footer">호빵맨</footer>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </body>
+    </html>
+    ```
