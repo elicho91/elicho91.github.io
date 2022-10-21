@@ -72,7 +72,7 @@ comments: true
 ## **간단한 로그인 페이지 만들어보기**
 
 - ✍간단한 로그인 페이지 만들기
-- 
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -86,8 +86,7 @@ comments: true
 </body>
 </html>
 
-        
-        - **로그인HTML**
+- **로그인HTML**
             
             ```html
             <!DOCTYPE html>
