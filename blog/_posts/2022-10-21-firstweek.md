@@ -6,7 +6,7 @@ tags: [HTML, CSS]
 comments: true
 ---
 
-## **03. HTML, CSS 기본 내용**
+## **HTML, CSS 기본 내용**
 
 - 1) HTML과 CSS의 개념
     
@@ -20,17 +20,17 @@ comments: true
 - 2) HTML 기초
     
     <aside>
-    👉 HTML은 크게 head와 body로 구성된답니다.
+    👉 HTML은 크게 head와 body로 구성된다.
     
     </aside>
     
-    - head안에는 페이지의 속성 정보를, body안에는 페이지의 내용을 담습니다.
+    - head안에는 페이지의 속성 정보를, body안에는 페이지의 내용을 담는다.
     - head 안에 들어가는 대표적인 요소들: meta, script, link, title 등
 
         </aside>
         
     - body 안에 들어가는 대표적인 요소들!
-        - **[코드스니펫] HTML기초**
+        - **HTML기초**
             
             ```html
             <!DOCTYPE html>
@@ -84,7 +84,6 @@ comments: true
 - 1) ✍간단한 로그인 페이지 만들기
     - Q. 모습 보기
         - html
-            <!DOCTYPE html>
             <html lang="en">
             <head>
                 <meta charset="UTF-8">
