@@ -86,7 +86,7 @@ comments: true
 
 - **로그인HTML**
 
-html
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -100,3 +100,4 @@ html
     <button>로그인하기</button>
 </body>
 </html>
+```
