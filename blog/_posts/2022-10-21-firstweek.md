@@ -97,31 +97,22 @@ comments: true
 
 - 1) ✍간단한 로그인 페이지 만들기
     
-    <aside>
-    🔥 앞으로 실습이 필요한 부분이 나오면 "✍"모양으로 알려줄게요!
-    퀴즈설명 영상을 먼저 보고 → 정해진 시간동안 혼자 한다음 → 함께하기 영상을 보세요!
-    
-    </aside>
-    
     - Q. 퀴즈설명
-        - 모습 보기
-            
-            ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6a2b76fd-9264-41c0-b0cc-2a44ad472624/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6a2b76fd-9264-41c0-b0cc-2a44ad472624/Untitled.png)
-            
-        
-        <aside>
-        👻 힌트: 위의 HTML기초에서 봤던 코드들을 적절히 조합해보세요!
-        ctrl+c,v 신공을 사용해보세요!
-        
-        </aside>
-        
-    - A. 함께하기(완성본)
-        
-        <aside>
-        💡 어때요, 할만했나요? 다만 조금씩 다른 방법으로 해결하셨더라도,
-        다음 강의 진행을 위해 아래 코드를 복사→붙여넣기 해주세요!
-        
-        </aside>
+   
+            html
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <title>로그인페이지</title>
+            </head>
+            <body>
+                <h1>로그인 페이지</h1>
+                <p>ID: <input type="text"/></p>
+                <p>PW: <input type="text"/></p>
+                <button>로그인하기</button>
+            </body>
+            </html>
         
         - **[코드스니펫] 로그인HTML**
             
