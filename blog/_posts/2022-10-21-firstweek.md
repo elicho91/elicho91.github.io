@@ -84,8 +84,6 @@ comments: true
 - 1) ✍간단한 로그인 페이지 만들기
     - Q. 모습 보기
     
-            html
-            <!DOCTYPE html>
             <html lang="en">
             <head>
                 <meta charset="UTF-8">
@@ -97,7 +95,6 @@ comments: true
                 <p>PW: <input type="text"/></p>
                 <button>로그인하기</button>
             </body>
-            </html>
 
         - **로그인HTML**
             
