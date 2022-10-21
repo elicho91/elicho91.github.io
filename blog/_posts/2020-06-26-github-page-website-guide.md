@@ -1,7 +1,7 @@
 ---
 layout: post
 title: How to Create Personal Website and Blog on GitHub
-subtitle: GitHub로 10분 만에 개인 웹사이트 및 블로그 만들기
+subtitle: ㅎㅎㅎㅎㅎㅎㅎㅎGitHub로 10분 만에 개인 웹사이트 및 블로그 만들기
 gh-repo: seokho-son/seokho-son.github.io
 gh-badge: [star, fork, follow]
 cover-img: /assets/img/cat-taesik-wide.jpg
