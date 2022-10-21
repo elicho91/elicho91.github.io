@@ -1,6 +1,6 @@
 ---
 layout: post
-title: [스파르타코딩클럽] 웹개발 종합반
+title: 스파르타코딩클럽 웹개발 종합반
 subtitle: 1주차 - 1
 tags: [Cloud-Barista, CB-Tumblebug, Multi-cloud, seokho son, open source]
 comments: true
