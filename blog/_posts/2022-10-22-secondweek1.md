@@ -91,7 +91,7 @@ comments: true
             https://www.w3schools.com/jquery/jquery_get_started.asp
             ```
             
-    - <head> 와 </head> 사이에 아래를 넣으면 끝!
+    - <.head> 와 <./head> 사이에 아래를 넣으면 끝!
         
         
         ```html
