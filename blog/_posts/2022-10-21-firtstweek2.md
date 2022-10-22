@@ -101,10 +101,6 @@ PW: <input type="password" />
 </body>
 
 </html>
-        
-- 튜터와 함께 아래와 같은 화면을 만들어볼까요?
-    
-    ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4aafd1d6-0983-41db-8c99-c25056413267/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4aafd1d6-0983-41db-8c99-c25056413267/Untitled.png)
     
     <aside>
     💡 margin과 padding      ( → 헷갈리지 말기!)
@@ -113,7 +109,7 @@ PW: <input type="password" />
     
     </aside>
     
-    - **[코드스니펫] 이미지URL**
+    - **이미지URL**
         
         ```html
         [https://www.ancient-origins.net/sites/default/files/field/image/Agesilaus-II-cover.jpg](https://www.ancient-origins.net/sites/default/files/field/image/Agesilaus-II-cover.jpg)
