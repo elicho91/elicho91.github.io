@@ -2,7 +2,7 @@
 layout: post
 title: 스파르타코딩클럽 웹개발 종합반 - 2주차
 subtitle: 2-2
-tags: [jQuery, Ajax]
+tags: [JSON]
 comments: true
 ---
 
