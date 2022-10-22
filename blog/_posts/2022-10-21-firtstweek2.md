@@ -61,8 +61,6 @@ comments: true
     color, width, height, border-radius, margin, padding
     
     </aside>
-    
-    - 튜터와 함께 아래와 같은 화면을 만들어볼까요?
         
 <html lang="en">
 
@@ -101,14 +99,13 @@ PW: <input type="password" />
 </div>
 <button>로그인하기</button>
 </body>
-</body>
 
 </html>
         
         <aside>
         💡 margin과 padding      ( → 헷갈리지 말기!)
          - margin은 바깥 여백을, padding은 내 안쪽 여백을
-         - div에 색깔을 넣는다.
+         - div에 색깔을 넣기.
         
         </aside>
         
