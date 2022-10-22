@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 스파르타코딩클럽 웹개발 종합반 - 2주차
-subtitle: 1-1
+subtitle: 2-1
 tags: [HTML, CSS]
 comments: true
 ---
