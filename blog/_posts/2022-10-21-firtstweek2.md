@@ -15,25 +15,18 @@ comments: true
     
     </aside>
     
-    - 빨간색 div 안에, 초록색/파란색 div가 들어있습니다. 아래와 같은 상황에서 빨간색 div를 가운데로 옮기면, 내용물인 초록/파란 div도 모두 함께 이동하겠죠!
-    - 즉, 박스를 옮기면 안의 내용물도 함께 옮겨지는 것과 같은 원리입니다.
-    - 같은 원리로, 초록 div의 글씨색을 바꾸면, 나는버튼1의 글씨색도 바뀐답니다!
+    - 빨간색 div 안에, 초록색/파란색 div가 들어있습니다. 아래와 같은 상황에서 빨간색 div를 가운데로 옮기면, 내용물인 초록/파란 div도 모두 함께 이동!
         
 ![CSS](https://teamsparta.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F0aa008bc-3f75-4e6a-a9a2-03eaa86551ba%2FUntitled.png?table=block&id=9c3db3aa-db2f-4e59-acbf-3c4098c99dcf&spaceId=83c75a39-3aba-4ba4-a792-7aefe4b07895&width=1620&userId=&cache=v2){: .mx-auto.d-block :}
         
 - 2) CSS 기초
-    - CSS는 어떻게 사용하나요?
-        
+-         
         <aside>
-        👉 <head> ~ </head> 안에 <style> ~ </style> 로 공간을 만들어 작성합니다.
-        아래 코드를 통해 간단한 사용 방법을 알아봅니다.
+        👉 <head> ~ </head> 안에 <style> ~ </style> 로 공간을 만들어 작성.
         
-        mytitle라는 클래스를 가리킬 때, .mytitle { ... } 라고 써줘야 하는 것을 꼭! 기억하세요!
+        mytitle라는 클래스를 가리킬 때, .mytitle { ... } 라고 써야함!
         
         </aside>
-        
-    - 모든 CSS들을 다 알 수는 없겠죠~~ 오늘 쓰는 것만 알아도 굿!
-    나머지는 검색해서 쓰시면 된답니다~!
         
         <aside>
         👉 배경관련
@@ -58,7 +51,7 @@ comments: true
         </aside>
         
 
-## **06. 자주 쓰이는 CSS 연습하기 (1)**
+## **자주 쓰이는 CSS 연습하기 (1)**
 
 - 1) 자주 쓰이는 CSS 연습하기
     
