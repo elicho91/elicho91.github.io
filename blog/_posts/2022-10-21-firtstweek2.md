@@ -2,16 +2,16 @@
 layout: post
 title: 스파르타코딩클럽 웹개발 종합반 - 1주차
 subtitle: 1-2
-tags: [HTML, CSS]
+tags: [CSS]
 comments: true
 ---
 
-## **05. CSS 기초**
+## **CSS 기초**
 
 - 1) HTML 부모-자식 구조 살펴보기
     
     <aside>
-    👉 html 태그는, "누가 누구 안에 있느냐"를 이해하는 것이 가장 중요합니다. 나를 감싸고 있는 태그가 바뀌면, 그 안의 내용물도 모두 영향을 받지요!
+    👉 html 태그는, "누가 누구 안에 있느냐"를 이해하는 것이 가장 중요. 나를 감싸고 있는 태그가 바뀌면, 그 안의 내용물도 모두 영향을 받는다.
     
     </aside>
     
@@ -19,7 +19,7 @@ comments: true
     - 즉, 박스를 옮기면 안의 내용물도 함께 옮겨지는 것과 같은 원리입니다.
     - 같은 원리로, 초록 div의 글씨색을 바꾸면, 나는버튼1의 글씨색도 바뀐답니다!
         
-        ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0aa008bc-3f75-4e6a-a9a2-03eaa86551ba/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0aa008bc-3f75-4e6a-a9a2-03eaa86551ba/Untitled.png)
+![CSS](https://teamsparta.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F0aa008bc-3f75-4e6a-a9a2-03eaa86551ba%2FUntitled.png?table=block&id=9c3db3aa-db2f-4e59-acbf-3c4098c99dcf&spaceId=83c75a39-3aba-4ba4-a792-7aefe4b07895&width=1620&userId=&cache=v2)
         
 - 2) CSS 기초
     - CSS는 어떻게 사용하나요?
