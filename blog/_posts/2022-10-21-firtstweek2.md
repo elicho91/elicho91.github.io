@@ -101,77 +101,121 @@ PW: <input type="password" />
 </body>
 
 </html>
-    
-    <aside>
-    💡 margin과 padding      ( → 헷갈리지 말기!)
-     - margin은 바깥 여백을, padding은 내 안쪽 여백을
-     - div에 색깔을 넣고, 직접 사용해서 차이를 비교해보세요!
-    
-    </aside>
-    
-    - **이미지URL**
-        
-        ```html
-        [https://www.ancient-origins.net/sites/default/files/field/image/Agesilaus-II-cover.jpg](https://www.ancient-origins.net/sites/default/files/field/image/Agesilaus-II-cover.jpg)
-        ```
-        
+<aside>
+💡 margin과 padding      ( → 헷갈리지 말기!)
+ - margin은 바깥 여백을, padding은 내 안쪽 여백을
+ - div에 색깔을 넣고, 직접 사용해서 차이를 비교해보세요!
+
+</aside>
+
+- **[코드스니펫] 이미지URL**
     
     ```html
-    <!DOCTYPE html>
-    <html lang="en">
-    
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>스파르타코딩클럽 | 로그인페이지</title>
-        <style>
-            .mytitle {
-                color: white;
-                width: 300px;
-                height: 200px;
-                background-image: url('https://www.ancient-origins.net/sites/default/files/field/image/Agesilaus-II-cover.jpg');
-                background-position: center;
-                background-size: cover;
-                
-                border-radius: 10px;
-                text-align: center;
-                padding-top: 40px;
-            }
-        </style>
-    </head>
-    
-    <body>
-        <div class="mytitle">
-            <h1>로그인 페이지</h1>
-            <h5>아이디, 비밀번호를 입력해주세요</h5>
-        </div>
-        <div>
-            <p>
-                ID: <input type="text" />
-            </p>
-            <p>
-                PW: <input type="password" />
-            </p>
-        </div>
-        <button>로그인하기</button>
-    </body>
-    </body>
-    
-    </html>
+    [https://www.ancient-origins.net/sites/default/files/field/image/Agesilaus-II-cover.jpg](https://www.ancient-origins.net/sites/default/files/field/image/Agesilaus-II-cover.jpg)
     ```
     
 
-## **07. 자주 쓰이는 CSS 연습하기 (2)**
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스파르타코딩클럽 | 로그인페이지</title>
+    <style>
+        .mytitle {
+            color: white;
+            width: 300px;
+            height: 200px;
+            background-image: url('https://www.ancient-origins.net/sites/default/files/field/image/Agesilaus-II-cover.jpg');
+            background-position: center;
+            background-size: cover;
+            
+            border-radius: 10px;
+            text-align: center;
+            padding-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mytitle">
+        <h1>로그인 페이지</h1>
+        <h5>아이디, 비밀번호를 입력해주세요</h5>
+    </div>
+    <div>
+        <p>
+            ID: <input type="text" />
+        </p>
+        <p>
+            PW: <input type="password" />
+        </p>
+    </div>
+    <button>로그인하기</button>
+</body>
+</body>
+
+</html>
+```
+
+## **자주 쓰이는 CSS 연습하기 (2)**
 
 - 만들어둔 로그인 화면을 가운데로 가져오려면?
     
     <aside>
-    👉 width를 주고, margin: auto를 사용하자!
+    👉 width를 주고, margin: auto 사용!
     그래도 안되면? display:block을 추가!
     
     </aside>
     
-    ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/32e462d8-8894-4bb5-9375-72e1d4285c97/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/32e462d8-8894-4bb5-9375-72e1d4285c97/Untitled.png)
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>스파르타코딩클럽 | 로그인페이지</title>
+<style>
+.mytitle {
+color: white;
+width: 300px;
+height: 200px;
+background-image: url('https://www.ancient-origins.net/sites/default/files/field/image/Agesilaus-II-cover.jpg');
+background-position: center;
+background-size: cover;
+
+border-radius: 10px;
+text-align: center;
+padding-top: 40px;
+}
+
+.wrap {
+margin: 10px auto;
+width: 300px;
+}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+<div class="mytitle">
+<h1>로그인 페이지</h1>
+<h5>아이디, 비밀번호를 입력해주세요</h5>
+</div>
+<div>
+<p>
+ID: <input type="text" />
+</p>
+<p>
+PW: <input type="password" />
+</p>
+</div>
+<button>로그인하기</button>
+</div>
+</body>
+</body>
+
+</html>
     
     ```html
     <!DOCTYPE html>
@@ -224,5 +268,3 @@ PW: <input type="password" />
     </html>
     ```
     
-
-##
