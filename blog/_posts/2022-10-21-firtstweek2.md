@@ -108,7 +108,7 @@ PW: <input type="password" />
 
 </aside>
 
-- **[코드스니펫] 이미지URL**
+- **이미지URL**
     
     ```html
     [https://www.ancient-origins.net/sites/default/files/field/image/Agesilaus-II-cover.jpg](https://www.ancient-origins.net/sites/default/files/field/image/Agesilaus-II-cover.jpg)
