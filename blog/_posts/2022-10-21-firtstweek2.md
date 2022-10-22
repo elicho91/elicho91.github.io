@@ -64,16 +64,55 @@ comments: true
     
     - 튜터와 함께 아래와 같은 화면을 만들어볼까요?
         
-        ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4aafd1d6-0983-41db-8c99-c25056413267/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4aafd1d6-0983-41db-8c99-c25056413267/Untitled.png)
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>스파르타코딩클럽 | 로그인페이지</title>
+<style>
+.mytitle {
+color: white;
+width: 300px;
+height: 200px;
+background-image: url('https://www.ancient-origins.net/sites/default/files/field/image/Agesilaus-II-cover.jpg');
+background-position: center;
+background-size: cover;
+
+border-radius: 10px;
+text-align: center;
+padding-top: 40px;
+}
+</style>
+</head>
+
+<body>
+<div class="mytitle">
+<h1>로그인 페이지</h1>
+<h5>아이디, 비밀번호를 입력해주세요</h5>
+</div>
+<div>
+<p>
+ID: <input type="text" />
+</p>
+<p>
+PW: <input type="password" />
+</p>
+</div>
+<button>로그인하기</button>
+</body>
+</body>
+
+</html>
         
         <aside>
         💡 margin과 padding      ( → 헷갈리지 말기!)
          - margin은 바깥 여백을, padding은 내 안쪽 여백을
-         - div에 색깔을 넣고, 직접 사용해서 차이를 비교해보세요!
+         - div에 색깔을 넣는다.
         
         </aside>
         
-        - **[코드스니펫] 이미지URL**
+        - **이미지URL**
             
             ```html
             [https://www.ancient-origins.net/sites/default/files/field/image/Agesilaus-II-cover.jpg](https://www.ancient-origins.net/sites/default/files/field/image/Agesilaus-II-cover.jpg)
