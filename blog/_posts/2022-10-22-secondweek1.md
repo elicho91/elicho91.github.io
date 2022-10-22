@@ -2,23 +2,22 @@
 layout: post
 title: 스파르타코딩클럽 웹개발 종합반 - 2주차
 subtitle: 2-1
-tags: [HTML, CSS]
+tags: [jQuery, Ajax]
 comments: true
 ---
 
-## **01. 2주차 오늘 배울 것**
+## **jQuery, Ajax**
 
 - 1) 오늘 배울 것 이야기 - 2주차: jQuery, Ajax
     
     <aside>
-    👉 오늘은 HTML파일을 받았다고 가정하고, Javascript로 다시 서버에 데이터를 요청하고 받는 방법을 배워볼거예요.
+    👉 jQuery를 이용해 Javascript로 HTML을 쉽게 제어하고, Ajax를 이용해 다시 서버에 데이터를 요청하고 받아보기.
     
-    jQuery를 이용해 Javascript로 HTML을 쉽게 제어하고,
-    Ajax를 이용해 다시 서버에 데이터를 요청하고 받아보겠습니다.
+
     
     </aside>
     
-    ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6434b1c6-1baf-4746-a253-19cd70fd5825/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6434b1c6-1baf-4746-a253-19cd70fd5825/Untitled.png)
+    ![Untitle](https://teamsparta.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F6434b1c6-1baf-4746-a253-19cd70fd5825%2FUntitled.png?table=block&id=f0b78f46-9992-47cc-af22-bf783b3cbdee&spaceId=83c75a39-3aba-4ba4-a792-7aefe4b07895&width=1970&userId=&cache=v2)
     
 - 2) Javascript 잠깐 복습 - 홀짝 판별 onclick 함수 만들어보기
     - 짝/홀수 판단하는 방법
@@ -30,7 +29,7 @@ comments: true
         console.log(odd % 2); // 2로 나눈 나머지가 1입니다.
         ```
         
-    - **[코드스니펫] 짝/홀수 onclick 함수(완성)**
+    - **짝/홀수 onclick 함수(완성)**
         
         ```jsx
             <script>
@@ -45,13 +44,8 @@ comments: true
                 }
             </script>
         ```
-        
-- 3) Javascript 만으로 충분할까요?
-    - 예를 들어 버튼의 색깔을 바꾸고 싶다면?
-    - 예를 들어 div 박스를 하나 감추고 싶다면?
-    - → 이런 것들 쉽게 해주는 것이, jQuery!
 
-## **02. JQuery 시작하기**
+## **JQuery 시작하기**
 
 - 1) jQuery 란?
     - HTML의 요소들을 조작하는, 편리한 Javascript를 미리 작성해둔 것. 라이브러리!
@@ -60,14 +54,14 @@ comments: true
         👉 Javascript로도 모든 기능(예 - 버튼 글씨 바꾸기 등)을 구현할 수는 있지만,
         
         1) 코드가 복잡하고, 2) 브라우저 간 호환성 문제도 고려해야해서,
-        **j**Query라는 라이브러리가 등장하게 되었답니다.
+        **j**Query라는 라이브러리가 등장했다.
         
         </aside>
         
     - jQuery와 Javascript - 코드 비교해보기
         
         <aside>
-        👉 jQuery는 Javascript와 다른 특별한 소프트웨어가 아니라 미리 작성된 Javascript 코드입니다. 전문 개발자들이 짜둔 코드를 잘 가져와서 사용하는 것임을 기억해주세요! (그렇게 때문에, 쓰기 전에 "임포트"를 해야합니다!)
+        👉 jQuery는 Javascript와 다른 특별한 소프트웨어가 아니라 미리 작성된 Javascript 코드.(가져다 쓰는것이기 때문에, 쓰기 전에 "import" 필수!)
         
         </aside>
         
@@ -77,21 +71,21 @@ comments: true
         document.getElementById("element").style.display = "none";
         ```
         
-        jQuery로 보다 직관적으로 쓸 수 있어요. 편리하죠? :-)
+        jQuery로 보다 직관적으로 쓸 수 있다.
         
         ```jsx
         $('#element').hide();
         ```
         
 - 2) jQuery 사용하기
-    - 미리 작성된 Javascript 코드를 가져오는 것을 '임포트'라고 부릅니다.
+    - 미리 작성된 Javascript 코드를 가져오는 것을 'import'라고 한다.
         
         <aside>
         👉 jQuery CDN 부분을 참고해서 임포트하기: [(링크)](https://www.w3schools.com/jquery/jquery_get_started.asp)
         
         </aside>
         
-        - **[코드스니펫] jQuery CDN**
+        - **jQuery CDN**
             
             ```html
             https://www.w3schools.com/jquery/jquery_get_started.asp
@@ -99,10 +93,6 @@ comments: true
             
     - <head> 와 </head> 사이에 아래를 넣으면 끝!
         
-        <aside>
-        👉 수업 자료를 잘 따라온 분이라면, 코드에 이미 다음과 같이 임포트 되어있을거예요. 다시한번 잘 살펴보세요!
-        
-        </aside>
         
         ```html
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -111,29 +101,20 @@ comments: true
     - jQuery를 사용하는 방법
         
         <aside>
-        👉 css와 마찬가지로, jQuery를 쓸 때에도 "가리켜야" → 조작할 수 있습니다.
+        👉 css와 마찬가지로, jQuery를 쓸 때에도 "가리켜야" → 조작할 수 있다.
         예) 특정 인풋박스의 값을 → 가져와줘!
         예) 특정 div를 → 안보이게 해줘!
         
-        css에서는 선택자로 class를 썼지요?
+        css에서는 선택자로 class를 쓰고,
         jQuery에서는 id 값을 통해 특정 버튼/인풋박스/div/.. 등을 가리키게 됩니다.
         
-        백문이불여일견! 자주 쓰는 jQuery들을 함께 다뤄보면서 익혀보죠!
         
         </aside>
         
 
-## **03. JQuery 다뤄보기 (1)**
+## **JQuery 다뤄보기 (1)**
 
-- 자주쓰는 jQuery들 다뤄보기
-    - 들어가기 전에 - 모든 jQuery를 외워야 하나요?
-        
-        <aside>
-        👉 절대!! 아닙니다. 예를 들어 스크롤 움직임을 감지한다거나, 화면 사이즈를 안다거나, jQuery가 할 수 있는 일은 무척 많습니다.
-        
-        그러니, 필요할 때에 필요한 기능을 구글링해서 쓰면 되는 거예요!
-        
-        </aside>
+- 자주쓰는 jQuery들 다뤄보기  
         
     - **[코드스니펫] 1주차 완성본**
         
