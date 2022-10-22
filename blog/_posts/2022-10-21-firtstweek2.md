@@ -19,7 +19,7 @@ comments: true
     - 즉, 박스를 옮기면 안의 내용물도 함께 옮겨지는 것과 같은 원리입니다.
     - 같은 원리로, 초록 div의 글씨색을 바꾸면, 나는버튼1의 글씨색도 바뀐답니다!
         
-![CSS](https://teamsparta.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F0aa008bc-3f75-4e6a-a9a2-03eaa86551ba%2FUntitled.png?table=block&id=9c3db3aa-db2f-4e59-acbf-3c4098c99dcf&spaceId=83c75a39-3aba-4ba4-a792-7aefe4b07895&width=1620&userId=&cache=v2)
+![CSS](https://teamsparta.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F0aa008bc-3f75-4e6a-a9a2-03eaa86551ba%2FUntitled.png?table=block&id=9c3db3aa-db2f-4e59-acbf-3c4098c99dcf&spaceId=83c75a39-3aba-4ba4-a792-7aefe4b07895&width=1620&userId=&cache=v2){: .mx-auto.d-block :}
         
 - 2) CSS 기초
     - CSS는 어떻게 사용하나요?
