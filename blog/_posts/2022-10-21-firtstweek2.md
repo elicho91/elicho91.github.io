@@ -104,7 +104,7 @@ PW: <input type="password" />
 <aside>
 💡 margin과 padding      ( → 헷갈리지 말기!)
  - margin은 바깥 여백을, padding은 내 안쪽 여백을
- - div에 색깔을 넣고, 직접 사용해서 차이를 비교해보세요!
+ - div에 색깔을 !
 
 </aside>
 
