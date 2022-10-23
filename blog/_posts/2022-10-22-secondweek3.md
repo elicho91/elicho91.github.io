@@ -94,7 +94,7 @@ comments: true
     http://spartacodingclub.shop/sparta_api/seoulair
 ```
             
-        - **[코드스니펫] Ajax 기본 골격**
+- **Ajax 기본 골격**
 
 
 ```jsx
@@ -109,7 +109,7 @@ comments: true
 ```
             
         
-        Ajax 코드 해설
+Ajax 코드 해설
 
 
 ```jsx
@@ -122,8 +122,8 @@ comments: true
           }
         })
 ```
-        
-    - $ajax 코드 설명
+     
+- $ajax 코드 설명
         - type: "GET" → GET 방식으로 요청한다.
         - url: 요청할 url
         - data: 요청하면서 함께 줄 데이터 (GET 요청시엔 공란)
@@ -137,16 +137,14 @@ comments: true
             data: { param: 'value', param2: 'value2' },
             
             </aside>
-            
-        - success: 성공하면, response 값에 서버의 결과 값을 담아서 함수를 실행!
-            
 
-            
-            ```jsx
+- success: 성공하면, response 값에 서버의 결과 값을 담아서 함수를 실행!
+
+```jsx
             success: function(response){ // 서버에서 준 결과를 response라는 변수에 담음
               console.log(response) 
             }
-            ```
+```
             
 - 2) Ajax 통신의 결과값을 이용해보기
 
@@ -162,9 +160,9 @@ $.ajax({
         })
 ```
         
-    - 개발자도구 콘솔에 찍어보기
-        
-        ```jsx
+- 개발자도구 콘솔에 찍어보기
+
+```jsx
         $.ajax({
           type: "GET",
           url: "http://spartacodingclub.shop/sparta_api/seoulair",
@@ -177,11 +175,11 @@ $.ajax({
         		console.log(gu_name, gu_mise);
           }
         })
-        ```
+```
         
-    - 모든 구의 미세먼지 값을 찍어보기
+- 모든 구의 미세먼지 값을 찍어보기
         
-        ```jsx
+```jsx
         $.ajax({
           type: "GET",
           url: "http://spartacodingclub.shop/sparta_api/seoulair",
@@ -196,9 +194,9 @@ $.ajax({
             }
           }
         });
-        ```
+```
         
-        - 복습할 때 참고! - 해설) 모든 구의 미세먼지 값을 찍어보기
+- 복습할 때 참고! - 해설) 모든 구의 미세먼지 값을 찍어보기
             1. 미세먼지 데이터가 어디에 있는지 찾기
                 
                 ![Untitle](https://teamsparta.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fcf6e770d-9618-4c1d-beef-afb23b3cd2c9%2FUntitled.png?table=block&id=5a4d82fc-9704-44d0-8c82-6957b2259345&spaceId=83c75a39-3aba-4ba4-a792-7aefe4b07895&width=480&userId=&cache=v2)
