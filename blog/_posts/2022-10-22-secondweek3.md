@@ -2,11 +2,11 @@
 layout: post
 title: 스파르타코딩클럽 웹개발 종합반 - 2주차
 subtitle: 2-2
-tags: [JSON]
+tags: [JSON, Ajax]
 comments: true
 ---
 
-## **08. 서버-클라이언트 통신 이해하기**
+## **서버-클라이언트 통신 이해하기**
 
 - 1) 서버→클라이언트: "JSON"을 이해하기
     - 서울시 OpenAPI에 접속해보기
@@ -16,22 +16,22 @@ comments: true
             http://openapi.seoul.go.kr:8088/6d4d776b466c656533356a4b4b5872/json/RealtimeCityAir/1/99
             ```
             
-    - 크롬 익스텐션 JSONView를 설치해볼까요? 그럼 좀 더 예쁘게 JSON을 볼 수 있습니다.
-        - **[코드스니펫] Jsonview**
+    - 크롬 익스텐션 JSONView를 설치.
+        - **Jsonview**
             
             ```html
             https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=ko
             ```
             
-    - JSON은, Key:Value로 이루어져 있습니다. 자료형 Dictionary와 아주- 유사하죠
+    - JSON은, Key:Value로 이루어져 있다. (자료형 Dictionary와 유사)
         
         <aside>
         👉 위 예제에서는 RealtimeCityAir라는 키 값에 딕셔너리 형 value가 들어가있고,
-        그 안에 row라는 키 값에는 리스트형 value가 들어가있습니다.
+        그 안에 row라는 키 값에는 리스트형 value가 들어있다.
         
         </aside>
         
-        ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8f29b7c4-6b71-4b7f-9013-a8afb772dd1a/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8f29b7c4-6b71-4b7f-9013-a8afb772dd1a/Untitled.png)
+        ![Untitle](https://teamsparta.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F8f29b7c4-6b71-4b7f-9013-a8afb772dd1a%2FUntitled.png?table=block&id=ffdcb262-43b5-49bf-b394-267442b39534&spaceId=83c75a39-3aba-4ba4-a792-7aefe4b07895&width=1150&userId=&cache=v2)
         
 - 2) 클라이언트→서버: GET 요청 이해하기
     
@@ -41,7 +41,7 @@ comments: true
     같은 예금 창구에서도 개인 고객이냐 기업 고객이냐에 따라
     가져와야 하는 것 / 처리해주는 것이 다른 것처럼,
     
-    클라이언트가 요청 할 때에도, "타입"이라는 것이 존재합니다.
+    클라이언트가 요청 할 때에도, "타입"이라는 것이 존재한다.
     
     * GET        →      통상적으로! 데이터 조회(Read)를 요청할 때
                                예) 영화 목록 조회
@@ -60,7 +60,6 @@ comments: true
         ```jsx
         https://movie.naver.com/movie/bi/mi/basic.nhn?code=161967
         
-        위 주소는 크게 두 부분으로 쪼개집니다. 바로 "?"가 쪼개지는 지점인데요.
         "?" 기준으로 앞부분이 <서버 주소>, 뒷부분이 [영화 번호] 입니다.
         
         * 서버 주소: https://movie.naver.com/movie/bi/mi/basic.nhn
@@ -70,45 +69,24 @@ comments: true
         <aside>
         👉 **GET 방식으로 데이터를 전달하는 방법**
         
-        ?  : 여기서부터 전달할 데이터가 작성된다는 의미입니다.
+        ?  : 여기서부터 전달할 데이터가 작성된다는 의미.
         & : 전달할 데이터가 더 있다는 뜻입니다.
         
         예시) google.com/search?q=아이폰&sourceid=chrome&ie=UTF-8
         
-                 위 주소는 google.com의 search 창구에 다음 정보를 전달합니다!
+                 위 주소는 google.com의 search 창구에 다음 정보를 전달!
                  q=아이폰                        (검색어)
                  sourceid=chrome        (브라우저 정보)
                  ie=UTF-8                      (인코딩 정보)
         
         </aside>
         
-        <aside>
-        👉 **여기서 잠깐, 그럼 code라는 이름으로 영화번호를 주자!는 것은
-        누가 정하는 것일까요?**
-        
-        → 네, 바로 프론트엔드 개발자와 백엔드 개발자가 미리 정해둔 **약속**입니다.
-        
-        프론트엔드: *"code라는 이름으로 영화번호를 주면 될까요?"*
-        백엔드: *"네 그렇게 하시죠. 그럼 code로 영화번호가 들어온다고 생각하고 코딩하고 있을게요"*
-        
-        </aside>
-        
 
-## **09. Ajax 시작하기**
+## **Ajax 시작하기**
 
 - 1) Ajax 시작하기
-    - 크롬 개발자 도구에 다음과 같이 써보세요
         
-        <aside>
-        👉 참고! Ajax는 jQuery를 임포트한 페이지에서만 동작 가능합니다.
-        
-        즉, [http://google.com/](http://google.com/) 과 같은 화면에서 개발자도구를 열면, jQuery가 임포트 되어있지 않기 때문에 아래와 같은 에러가 뜹니다.
-        
-        *Uncaught TypeError: $.ajax is not a function*
-        → ajax라는 게 없다는 뜻
-        
-        </aside>
-        
+
         - **[코드스니펫] 미세먼지 OpenAPI**
             
             ```html
@@ -130,12 +108,13 @@ comments: true
             
         
         Ajax 코드 해설
-        
+
+
         ```jsx
         $.ajax({
           type: "GET", // GET 방식으로 요청한다.
           url: "http://spartacodingclub.shop/sparta_api/seoulair",
-          data: {}, // 요청하면서 함께 줄 데이터 (GET 요청시엔 비워두세요)
+          data: {}, // 요청하면서 함께 줄 데이터 (GET 요청시엔 공란)
           success: function(response){ // 서버에서 준 결과를 response라는 변수에 담음
             console.log(response) // 서버에서 준 결과를 이용해서 나머지 코드를 작성
           }
@@ -145,25 +124,21 @@ comments: true
     - $ajax 코드 설명
         - type: "GET" → GET 방식으로 요청한다.
         - url: 요청할 url
-        - data: 요청하면서 함께 줄 데이터 (GET 요청시엔 비워두세요)
+        - data: 요청하면서 함께 줄 데이터 (GET 요청시엔 공란)
             
             <aside>
             👉 리마인드
-            GET 요청은, url뒤에 아래와 같이 붙여서 데이터를 가져갑니다.
+            GET 요청은, url뒤에 아래와 같이 붙여서 데이터를 가져간다.
             http://naver.com?param=value&param2=value2 
             
-            POST 요청은, data : {} 에 넣어서 데이터를 가져갑니다.
+            POST 요청은, data : {} 에 넣어서 데이터를 가져간다.
             data: { param: 'value', param2: 'value2' },
             
             </aside>
             
-        - success: 성공하면, response 값에 서버의 결과 값을 담아서 함수를 실행한다.
+        - success: 성공하면, response 값에 서버의 결과 값을 담아서 함수를 실행!
             
-            <aside>
-            👉 결과가 어떻게 response에 들어가나요? → 받아 들이셔야 합니다..!
-            (대부분의 개발자들도 내부 원리는 코드를 안 뜯어봐서 몰라요.^^;;)
-            
-            </aside>
+
             
             ```jsx
             success: function(response){ // 서버에서 준 결과를 response라는 변수에 담음
@@ -226,7 +201,7 @@ comments: true
                 
                 ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/cf6e770d-9618-4c1d-beef-afb23b3cd2c9/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/cf6e770d-9618-4c1d-beef-afb23b3cd2c9/Untitled.png)
                 
-                위 그림과 같이 RealtimeCityAir > row 에 미세먼지 데이터가 들어있습니다. 이걸 꺼내볼까요?
+                위 그림과 같이 RealtimeCityAir > row 에 미세먼지 데이터가 들어있음.
                 
                 ```jsx
                 $.ajax({
