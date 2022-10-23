@@ -85,19 +85,19 @@ comments: true
 ## **Ajax 시작하기**
 
 - 1) Ajax 시작하기
-        
+
 
 - **미세먼지 OpenAPI**
 
 
-            ```html
-            http://spartacodingclub.shop/sparta_api/seoulair
-            ```
+```html
+    http://spartacodingclub.shop/sparta_api/seoulair
+```
             
         - **[코드스니펫] Ajax 기본 골격**
 
 
-            ```jsx
+```jsx
             $.ajax({
               type: "GET",
               url: "여기에URL을입력",
@@ -106,13 +106,13 @@ comments: true
                 console.log(response)
               }
             })
-            ```
+```
             
         
         Ajax 코드 해설
 
 
-        ```jsx
+```jsx
         $.ajax({
           type: "GET", // GET 방식으로 요청한다.
           url: "http://spartacodingclub.shop/sparta_api/seoulair",
@@ -121,7 +121,7 @@ comments: true
             console.log(response) // 서버에서 준 결과를 이용해서 나머지 코드를 작성
           }
         })
-        ```
+```
         
     - $ajax 코드 설명
         - type: "GET" → GET 방식으로 요청한다.
