@@ -87,14 +87,16 @@ comments: true
 - 1) Ajax 시작하기
         
 
-        - **[코드스니펫] 미세먼지 OpenAPI**
-            
+        - **미세먼지 OpenAPI**
+
+
             ```html
             http://spartacodingclub.shop/sparta_api/seoulair
             ```
             
         - **[코드스니펫] Ajax 기본 골격**
-            
+
+
             ```jsx
             $.ajax({
               type: "GET",
@@ -147,8 +149,8 @@ comments: true
             ```
             
 - 2) Ajax 통신의 결과값을 이용해보기
-    - 위에서 했던 Ajax 통신을 발전시켜볼게요!
-        
+
+
         ```jsx
         $.ajax({
           type: "GET", // GET 방식으로 요청한다.
