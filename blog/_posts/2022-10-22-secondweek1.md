@@ -76,7 +76,7 @@ comments: true
         ```jsx
         $('#element').hide();
         ```
-        
+
 - 2) jQuery 사용하기
     - 미리 작성된 Javascript 코드를 가져오는 것을 'import'라고 한다.
         
@@ -245,7 +245,7 @@ comments: true
         
         '영화 기록하기' 버튼을 누르면 숨겨진 창이 나타나고, '닫기'를 누르면 없어진다.
         
-        ![Untitled]([https://s3-us-west-2.amazonaws.com/secure.notion-static.com/57650491-3d1e-4566-9c26-3990cf5337da/Untitled.png](https://teamsparta.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F57650491-3d1e-4566-9c26-3990cf5337da%2FUntitled.png?table=block&id=3a7fbb2c-276c-43d9-a93b-9ed6b5ae5a4c&spaceId=83c75a39-3aba-4ba4-a792-7aefe4b07895&width=2000&userId=&cache=v2))
+        ![Untitled]([https://s3-us-west-2.amazonaws.com/secure.notion-static.com/57650491-3d1e-4566-9c26-3990cf5337da/Untitled.png](https://teamsparta.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F57650491-3d1e-4566-9c26-3990cf5337da%2FUntitled.png?table=block&id=3a7fbb2c-276c-43d9-a93b-9ed6b5ae5a4c&spaceId=83c75a39-3aba-4ba4-a792-7aefe4b07895&width=2000&userId=&cache=v2)
         
     - (2) 포스팅 박스 열기 버튼에 function을 달기
         
