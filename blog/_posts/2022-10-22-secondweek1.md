@@ -112,6 +112,7 @@ comments: true
 
 ## **JQuery 다뤄보기 (1)**
 
+
 - 자주쓰는 jQuery들 다뤄보기  
         
     - 1. input 박스의 값을 가져와보기
