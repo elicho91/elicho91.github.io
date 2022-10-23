@@ -432,7 +432,7 @@ success: function(response){
 </body>
 </html>
 
-    - 소스코드
+- 소스코드
 
 ```jsx
         <!doctype html>
