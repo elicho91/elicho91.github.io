@@ -434,7 +434,7 @@ success: function(response){
 
     - 소스코드
 
-            ```jsx
+```jsx
         <!doctype html>
         <html lang="ko">
           <head>
@@ -488,4 +488,4 @@ success: function(response){
             </div>
           </body>
         </html>
-        ```
+```
