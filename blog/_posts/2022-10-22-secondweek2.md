@@ -1,924 +1,911 @@
 ---
 layout: post
 title: 스파르타코딩클럽 웹개발 종합반 - 2주차
-subtitle: 2-2
-tags: [JSON]
+subtitle: Jquery 연습하기
+tags: [jQuery, Ajax]
 comments: true
 ---
 
-## **08. 서버-클라이언트 통신 이해하기**
+## **jQuery, Ajax**
 
-- 1) 서버→클라이언트: "JSON"을 이해하기
-    - 서울시 OpenAPI에 접속해보기
-        - **[코드스니펫] 서울시 OpenAPI**
-            
-            ```html
-            http://openapi.seoul.go.kr:8088/6d4d776b466c656533356a4b4b5872/json/RealtimeCityAir/1/99
-            ```
-            
-    - 크롬 익스텐션 JSONView를 설치해볼까요? 그럼 좀 더 예쁘게 JSON을 볼 수 있습니다.
-        - **[코드스니펫] Jsonview**
-            
-            ```html
-            https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=ko
-            ```
-            
-    - JSON은, Key:Value로 이루어져 있습니다. 자료형 Dictionary와 아주- 유사하죠
-        
-        <aside>
-        👉 위 예제에서는 RealtimeCityAir라는 키 값에 딕셔너리 형 value가 들어가있고,
-        그 안에 row라는 키 값에는 리스트형 value가 들어가있습니다.
-        
-        </aside>
-        
-        ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8f29b7c4-6b71-4b7f-9013-a8afb772dd1a/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8f29b7c4-6b71-4b7f-9013-a8afb772dd1a/Untitled.png)
-        
-- 2) 클라이언트→서버: GET 요청 이해하기
+- 1) 오늘 배울 것 이야기 - 2주차: jQuery, Ajax
     
     <aside>
-    👉 **API는 은행 창구와 같은 것!**
+    👉 jQuery를 이용해 Javascript로 HTML을 쉽게 제어하고, Ajax를 이용해 다시 서버에 데이터를 요청하고 받아보기.
     
-    같은 예금 창구에서도 개인 고객이냐 기업 고객이냐에 따라
-    가져와야 하는 것 / 처리해주는 것이 다른 것처럼,
-    
-    클라이언트가 요청 할 때에도, "타입"이라는 것이 존재합니다.
-    
-    * GET        →      통상적으로! 데이터 조회(Read)를 요청할 때
-                               예) 영화 목록 조회
-    
-    * POST     →      통상적으로! 데이터 생성(Create), 변경(Update), 삭제(Delete) 요청 할 때
-                               예) 회원가입, 회원탈퇴, 비밀번호 수정
-    
-    이 중에서 오늘은 GET 방식에 대해 배워보겠습니다. (POST는 4주차에 배웁니다)
+
     
     </aside>
     
-    - **GET**
-        
-        [기생충](https://movie.naver.com/movie/bi/mi/basic.nhn?code=161967)
+    ![Untitle](https://teamsparta.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F6434b1c6-1baf-4746-a253-19cd70fd5825%2FUntitled.png?table=block&id=f0b78f46-9992-47cc-af22-bf783b3cbdee&spaceId=83c75a39-3aba-4ba4-a792-7aefe4b07895&width=1970&userId=&cache=v2)
+    
+- 2) Javascript 잠깐 복습 - 홀짝 판별 onclick 함수 만들어보기
+    - 짝/홀수 판단하는 방법
         
         ```jsx
-        https://movie.naver.com/movie/bi/mi/basic.nhn?code=161967
-        
-        위 주소는 크게 두 부분으로 쪼개집니다. 바로 "?"가 쪼개지는 지점인데요.
-        "?" 기준으로 앞부분이 <서버 주소>, 뒷부분이 [영화 번호] 입니다.
-        
-        * 서버 주소: https://movie.naver.com/movie/bi/mi/basic.nhn
-        * 영화 정보: code=161967
+        let even = 4;
+        console.log(even % 2); // 2로 나눈 나머지가 0입니다.
+        let odd = 5;
+        console.log(odd % 2); // 2로 나눈 나머지가 1입니다.
         ```
         
-        <aside>
-        👉 **GET 방식으로 데이터를 전달하는 방법**
+    - **짝/홀수 onclick 함수(완성)**
         
-        ?  : 여기서부터 전달할 데이터가 작성된다는 의미입니다.
-        & : 전달할 데이터가 더 있다는 뜻입니다.
-        
-        예시) google.com/search?q=아이폰&sourceid=chrome&ie=UTF-8
-        
-                 위 주소는 google.com의 search 창구에 다음 정보를 전달합니다!
-                 q=아이폰                        (검색어)
-                 sourceid=chrome        (브라우저 정보)
-                 ie=UTF-8                      (인코딩 정보)
-        
-        </aside>
-        
-        <aside>
-        👉 **여기서 잠깐, 그럼 code라는 이름으로 영화번호를 주자!는 것은
-        누가 정하는 것일까요?**
-        
-        → 네, 바로 프론트엔드 개발자와 백엔드 개발자가 미리 정해둔 **약속**입니다.
-        
-        프론트엔드: *"code라는 이름으로 영화번호를 주면 될까요?"*
-        백엔드: *"네 그렇게 하시죠. 그럼 code로 영화번호가 들어온다고 생각하고 코딩하고 있을게요"*
-        
-        </aside>
-        
+        ```jsx
+            <script>
+                let count = 1;
+                function hey() {
+                    if (count % 2 == 0) {
+                        alert('짝짝짝👏');
+                    } else {
+                        alert('홀홀홀🎅');
+                    }
+        						count += 1;
+                }
+            </script>
+        ```
 
-## **09. Ajax 시작하기**
+## **JQuery 시작하기**
 
-- 1) Ajax 시작하기
-    - 크롬 개발자 도구에 다음과 같이 써보세요
+- 1) jQuery 란?
+    - HTML의 요소들을 조작하는, 편리한 Javascript를 미리 작성해둔 것. 라이브러리!
         
         <aside>
-        👉 참고! Ajax는 jQuery를 임포트한 페이지에서만 동작 가능합니다.
+        👉 Javascript로도 모든 기능(예 - 버튼 글씨 바꾸기 등)을 구현할 수는 있지만,
         
-        즉, [http://google.com/](http://google.com/) 과 같은 화면에서 개발자도구를 열면, jQuery가 임포트 되어있지 않기 때문에 아래와 같은 에러가 뜹니다.
-        
-        *Uncaught TypeError: $.ajax is not a function*
-        → ajax라는 게 없다는 뜻
+        1) 코드가 복잡하고, 2) 브라우저 간 호환성 문제도 고려해야해서,
+        **j**Query라는 라이브러리가 등장했다.
         
         </aside>
         
-        - **[코드스니펫] 미세먼지 OpenAPI**
+    - jQuery와 Javascript - 코드 비교해보기
+        
+        <aside>
+        👉 jQuery는 Javascript와 다른 특별한 소프트웨어가 아니라 미리 작성된 Javascript 코드.(가져다 쓰는것이기 때문에, 쓰기 전에 "import" 필수!)
+        
+        </aside>
+        
+        Javascript로 길고 복잡하게 써야 하는 것을
+        
+        ```jsx
+        document.getElementById("element").style.display = "none";
+        ```
+        
+        jQuery로 보다 직관적으로 쓸 수 있다.
+        
+        ```jsx
+        $('#element').hide();
+        ```
+        
+- 2) jQuery 사용하기
+    - 미리 작성된 Javascript 코드를 가져오는 것을 'import'라고 한다.
+        
+        <aside>
+        👉 jQuery CDN 부분을 참고해서 임포트하기: [(링크)](https://www.w3schools.com/jquery/jquery_get_started.asp)
+        
+        </aside>
+        
+        - **jQuery CDN**
             
             ```html
-            http://spartacodingclub.shop/sparta_api/seoulair
+            https://www.w3schools.com/jquery/jquery_get_started.asp
             ```
             
-        - **[코드스니펫] Ajax 기본 골격**
-            
-            ```jsx
-            $.ajax({
-              type: "GET",
-              url: "여기에URL을입력",
-              data: {},
-              success: function(response){
-                console.log(response)
-              }
-            })
-            ```
-            
+    - <.head> 와 <./head> 사이에 아래를 넣으면 끝!
         
-        Ajax 코드 해설
-        
-        ```jsx
-        $.ajax({
-          type: "GET", // GET 방식으로 요청한다.
-          url: "http://spartacodingclub.shop/sparta_api/seoulair",
-          data: {}, // 요청하면서 함께 줄 데이터 (GET 요청시엔 비워두세요)
-          success: function(response){ // 서버에서 준 결과를 response라는 변수에 담음
-            console.log(response) // 서버에서 준 결과를 이용해서 나머지 코드를 작성
-          }
-        })
-        ```
-        
-    - $ajax 코드 설명
-        - type: "GET" → GET 방식으로 요청한다.
-        - url: 요청할 url
-        - data: 요청하면서 함께 줄 데이터 (GET 요청시엔 비워두세요)
-            
-            <aside>
-            👉 리마인드
-            GET 요청은, url뒤에 아래와 같이 붙여서 데이터를 가져갑니다.
-            http://naver.com?param=value&param2=value2 
-            
-            POST 요청은, data : {} 에 넣어서 데이터를 가져갑니다.
-            data: { param: 'value', param2: 'value2' },
-            
-            </aside>
-            
-        - success: 성공하면, response 값에 서버의 결과 값을 담아서 함수를 실행한다.
-            
-            <aside>
-            👉 결과가 어떻게 response에 들어가나요? → 받아 들이셔야 합니다..!
-            (대부분의 개발자들도 내부 원리는 코드를 안 뜯어봐서 몰라요.^^;;)
-            
-            </aside>
-            
-            ```jsx
-            success: function(response){ // 서버에서 준 결과를 response라는 변수에 담음
-              console.log(response) 
-            }
-            ```
-            
-- 2) Ajax 통신의 결과값을 이용해보기
-    - 위에서 했던 Ajax 통신을 발전시켜볼게요!
-        
-        ```jsx
-        $.ajax({
-          type: "GET", // GET 방식으로 요청한다.
-          url: "http://spartacodingclub.shop/sparta_api/seoulair",
-          data: {}, // 요청하면서 함께 줄 데이터 (GET 요청시엔 비워두세요)
-          success: function(response){ // 서버에서 준 결과를 response라는 변수에 담음
-            console.log(response) // 서버에서 준 결과를 이용해서 나머지 코드를 작성
-          }
-        })
-        ```
-        
-    - 개발자도구 콘솔에 찍어보기
-        
-        ```jsx
-        $.ajax({
-          type: "GET",
-          url: "http://spartacodingclub.shop/sparta_api/seoulair",
-          data: {},
-          success: function(response){
-        		// 값 중 도봉구의 미세먼지 값만 가져와보기
-        		let dobong = response["RealtimeCityAir"]["row"][11];
-        		let gu_name = dobong['MSRSTE_NM'];
-        		let gu_mise = dobong['IDEX_MVL'];
-        		console.log(gu_name, gu_mise);
-          }
-        })
-        ```
-        
-    - 모든 구의 미세먼지 값을 찍어보기
-        
-        ```jsx
-        $.ajax({
-          type: "GET",
-          url: "http://spartacodingclub.shop/sparta_api/seoulair",
-          data: {},
-          success: function (response) {
-            let mise_list = response["RealtimeCityAir"]["row"];
-            for (let i = 0; i < mise_list.length; i++) {
-              let mise = mise_list[i];
-              let gu_name = mise["MSRSTE_NM"];
-              let gu_mise = mise["IDEX_MVL"];
-              console.log(gu_name, gu_mise);
-            }
-          }
-        });
-        ```
-        
-        - 복습할 때 참고! - 해설) 모든 구의 미세먼지 값을 찍어보기
-            1. 미세먼지 데이터가 어디에 있는지 찾기
-                
-                ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/cf6e770d-9618-4c1d-beef-afb23b3cd2c9/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/cf6e770d-9618-4c1d-beef-afb23b3cd2c9/Untitled.png)
-                
-                위 그림과 같이 RealtimeCityAir > row 에 미세먼지 데이터가 들어있습니다. 이걸 꺼내볼까요?
-                
-                ```jsx
-                $.ajax({
-                  type: "GET",
-                  url: "http://spartacodingclub.shop/sparta_api/seoulair",
-                  data: {},
-                  success: function(response){
-                		let mise_list = response["RealtimeCityAir"]["row"]; // 꺼내는 부분!
-                		console.log(mise_list);
-                  }
-                })
-                ```
-                
-            2. 반복문으로 구 데이터를 출력해보기
-                
-                ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/dc6ab951-95aa-4415-8977-fc988e04e3cc/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/dc6ab951-95aa-4415-8977-fc988e04e3cc/Untitled.png)
-                
-                row의 값을 mise_list에 담았으니, 반복문을 이용해보겠습니다!
-                
-                ```jsx
-                $.ajax({
-                  type: "GET",
-                  url: "http://spartacodingclub.shop/sparta_api/seoulair",
-                  data: {},
-                  success: function (response) {
-                    let mise_list = response["RealtimeCityAir"]["row"];
-                    for (let i = 0; i < mise_list.length; i++) {
-                      let mise = mise_list[i];
-                      console.log(mise);
-                    }
-                  },
-                });
-                ```
-                
-            3. 구 데이터에서 구 이름, 미세먼지 수치를 골라내어 출력하기
-                
-                ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/41a0dbc3-2ad1-458f-baeb-08961f950b25/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/41a0dbc3-2ad1-458f-baeb-08961f950b25/Untitled.png)
-                
-                구 이름 키 값인 "MSRSTE_NM", 미세먼지 수치 키값인 "IDEX_MVL"의 밸류를 출력
-                
-                ```jsx
-                $.ajax({
-                  type: "GET",
-                  url: "http://spartacodingclub.shop/sparta_api/seoulair",
-                  data: {},
-                  success: function (response) {
-                    let mise_list = response["RealtimeCityAir"]["row"];
-                    for (let i = 0; i < mise_list.length; i++) {
-                      let mise = mise_list[i];
-                      let gu_name = mise["MSRSTE_NM"];
-                      let gu_mise = mise["IDEX_MVL"];
-                      console.log(gu_name, gu_mise);
-                    }
-                  }
-                });
-                ```
-                
-
-## 10**. Ajax 함께 연습하기**
-
-- 1) 서울시 OpenAPI(실시간 미세먼지 상태)를 이용하기
-    - **[코드스니펫] Ajax 기본 골격**
-        
-        ```jsx
-        $.ajax({
-          type: "GET",
-          url: "여기에URL을입력",
-          data: {},
-          success: function(response){
-            console.log(response)
-          }
-        })
-        ```
-        
-    - **[코드스니펫] 미세먼지 OpenAPI**
         
         ```html
-        http://spartacodingclub.shop/sparta_api/seoulair
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         ```
         
-    - **[코드스니펫] Ajax 연습**
+    - jQuery를 사용하는 방법
+        
+        예) 특정 인풋박스의 값을 → 가져와줘!
+        예) 특정 div를 → 안보이게 해줘!
+        
+        css에서는 선택자로 class를 쓰고,
+        jQuery에서는 id 값을 통해 특정 버튼/인풋박스/div/.. 등을 가리키게 된다.
+        
+        
+        </aside>
+        
+
+## **JQuery 다뤄보기 (1)**
+
+- 자주쓰는 jQuery들 다뤄보기  
+        
+    - 1. input 박스의 값을 가져와보기
+        
+```jsx
+        <div class="form-floating mb-3">
+            <input id="url" type="email" class="form-control" placeholder="name@example.com">
+            <label>영화URL</label>
+        </div>
+        ```
         
         ```jsx
-        <!doctype html>
-        <html lang="ko">
+        // 크롬 개발자도구 콘솔창에서 쳐보기
+        // id 값이 url인 곳을 가리키고, val()로 값을 가져온다.
+        $('#url').val();
         
-        <head>
-            <meta charset="UTF-8">
-            <title>jQuery 연습하고 가기!</title>
-        
-            <!-- jQuery를 import 합니다 -->
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        
-            <style type="text/css">
-                div.question-box {
-                    margin: 10px 0 20px 0;
-                }
-            </style>
-        
-            <script>
-                function q1() {
-                    // 여기에 코드를 입력하세요
-                }
-            </script>
-        
-        </head>
-        
-        <body>
-            <h1>jQuery+Ajax의 조합을 연습하자!</h1>
-        
-            <hr />
-        
-            <div class="question-box">
-                <h2>1. 서울시 OpenAPI(실시간 미세먼지 상태)를 이용하기</h2>
-                <p>모든 구의 미세먼지를 표기해주세요</p>
-                <p>업데이트 버튼을 누를 때마다 지웠다 새로 씌여져야 합니다.</p>
-                <button onclick="q1()">업데이트</button>
-                <ul id="names-q1">
-                    <li>중구 : 82</li>
-                    <li>종로구 : 87</li>
-                    <li>용산구 : 84</li>
-                    <li>은평구 : 82</li>
-                </ul>
-            </div>
-        </body>
-        
-        </html>
+        // 입력할때는?
+        $('#url').val('이렇게 하면 입력이 가능하지만!');
         ```
         
-    - **[코드스니펫] Ajax 연습(보기)**
-        
-        ```python
-        http://spartacodingclub.shop/ajaxquiz/01
-        ```
-        
-    - **[코드스니펫] Ajax 연습(완성)**
+    - 2. div 보이기 / 숨기기
         
         ```jsx
-        <!doctype html>
-        <html lang="ko">
-        
-        <head>
-            <meta charset="UTF-8">
-            <title>jQuery 연습하고 가기!</title>
-        
-            <!-- jQuery를 import 합니다 -->
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        
-            <style type="text/css">
-                div.question-box {
-                    margin: 10px 0 20px 0;
-                }
-            </style>
-        
-            <script>
-                function q1() {
-                    // 여기에 코드를 입력하세요
-                    $('#names-q1').empty();
-                    $.ajax({
-                        type: "GET",
-                        url: "http://spartacodingclub.shop/sparta_api/seoulair",
-                        data: {},
-                        success: function (response) {
-                            let rows = response["RealtimeCityAir"]["row"];
-                            for (let i = 0; i < rows.length; i++) {
-                                let gu_name = rows[i]['MSRSTE_NM'];
-                                let gu_mise = rows[i]['IDEX_MVL'];
-                                let temp_html = `<li>${gu_name} : ${gu_mise}</li>`
-                                $('#names-q1').append(temp_html);
-                            }
-                        }
-                    })
-                }
-            </script>
-        
-        </head>
-        
-        <body>
-            <h1>jQuery+Ajax의 조합을 연습하자!</h1>
-        
-            <hr />
-        
-            <div class="question-box">
-                <h2>1. 서울시 OpenAPI(실시간 미세먼지 상태)를 이용하기</h2>
-                <p>모든 구의 미세먼지를 표기해주세요</p>
-                <p>업데이트 버튼을 누를 때마다 지웠다 새로 씌여져야 합니다.</p>
-                <button onclick="q1()">업데이트</button>
-                <ul id="names-q1">
-                </ul>
+        <div class="mypost" id="post-box">
+            <div class="form-floating mb-3">
+                <input id="url" type="email" class="form-control" placeholder="name@example.com">
+                <label>영화URL</label>
             </div>
-        </body>
-        
-        </html>
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect01">별점</label>
+                <select class="form-select" id="inputGroupSelect01">
+                    <option selected>-- 선택하기 --</option>
+                    <option value="1">⭐</option>
+                    <option value="2">⭐⭐</option>
+                    <option value="3">⭐⭐⭐</option>
+                    <option value="4">⭐⭐⭐⭐</option>
+                    <option value="5">⭐⭐⭐⭐⭐</option>
+                </select>
+            </div>
+            <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                          style="height: 100px"></textarea>
+                <label for="floatingTextarea2">코멘트</label>
+            </div>
+            <div class="mybtns">
+                <button type="button" class="btn btn-dark">기록하기</button>
+                <button type="button" class="btn btn-outline-dark">닫기</button>
+            </div>
+        </div>
         ```
-        
-    
-    <aside>
-    👉 [한걸음 더]
-    미세먼지 수치가 70이상인 곳은 빨갛게 보여줄까요?
-    
-    </aside>
-    
-    - **[코드스니펫] Ajax 연습(완성-한걸음더)**
         
         ```jsx
-        <!doctype html>
-        <html lang="ko">
+        // 크롬 개발자도구 콘솔창에 쳐보기
+        // id 값이 post-box인 곳을 가리키고, hide()로 안보이게 한다.
+        $('#post-box').hide();
         
-        <head>
-            <meta charset="UTF-8">
-            <title>jQuery 연습하고 가기!</title>
-        
-            <!-- jQuery를 import 합니다 -->
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        
-            <style type="text/css">
-                div.question-box {
-                    margin: 10px 0 20px 0;
-                }
-                .bad {
-                    color: red;
-                    font-weight: bold;
-                }
-            </style>
-        
-            <script>
-                function q1() {
-                    // 여기에 코드를 입력하세요
-                    $('#names-q1').empty();
-                    $.ajax({
-                        type: "GET",
-                        url: "http://spartacodingclub.shop/sparta_api/seoulair",
-                        data: {},
-                        success: function (response) {
-                            let rows = response["RealtimeCityAir"]["row"];
-                            for (let i = 0; i < rows.length; i++) {
-                                let gu_name = rows[i]['MSRSTE_NM'];
-                                let gu_mise = rows[i]['IDEX_MVL'];
-        
-                                let temp_html = ''
-        
-                                if (gu_mise > 70) {
-                                    temp_html = `<li class="bad">${gu_name} : ${gu_mise}</li>`
-                                } else {
-                                    temp_html = `<li>${gu_name} : ${gu_mise}</li>`
-                                }
-                                
-                                $('#names-q1').append(temp_html);
-                            }
-                        }
-                    })
-                }
-            </script>
-        
-        </head>
-        
-        <body>
-            <h1>jQuery+Ajax의 조합을 연습하자!</h1>
-        
-            <hr />
-        
-            <div class="question-box">
-                <h2>1. 서울시 OpenAPI(실시간 미세먼지 상태)를 이용하기</h2>
-                <p>모든 구의 미세먼지를 표기해주세요</p>
-                <p>업데이트 버튼을 누를 때마다 지웠다 새로 씌여져야 합니다.</p>
-                <button onclick="q1()">업데이트</button>
-                <ul id="names-q1">
-                </ul>
-            </div>
-        </body>
-        
-        </html>
+        // show()로 보이게 한다.
+        $('#post-box').show();
         ```
         
 
- 
+## **JQuery 다뤄보기 (2)**
 
-## 11**. Quiz_Ajax 연습하기(1)**
-
-- 1) ✍서울시 OpenAPI(실시간 따릉이 현황)을 이용하기
-    - **[코드스니펫] 따릉이 OpenAPI**
-        
-        ```html
-        http://spartacodingclub.shop/sparta_api/seoulbike
-        ```
-        
-    - **[코드스니펫] Ajax 퀴즈1**
-        
-        ```html
-        <!doctype html>
-        <html lang="ko">
-        
-        <head>
-            <meta charset="UTF-8">
-            <title>JQuery 연습하고 가기!</title>
-            <!-- JQuery를 import 합니다 -->
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        
-            <style type="text/css">
-                div.question-box {
-                    margin: 10px 0 20px 0;
-                }
-        
-                table {
-                    border: 1px solid;
-                    border-collapse: collapse;
-                }
-        
-                td,
-                th {
-                    padding: 10px;
-                    border: 1px solid;
-                }
-            </style>
-        
-            <script>
-                function q1() {
-                    // 여기에 코드를 입력하세요
-                }
-            </script>
-        
-        </head>
-        
-        <body>
-            <h1>jQuery + Ajax의 조합을 연습하자!</h1>
-        
-            <hr />
-        
-            <div class="question-box">
-                <h2>2. 서울시 OpenAPI(실시간 따릉기 현황)를 이용하기</h2>
-                <p>모든 위치의 따릉이 현황을 보여주세요</p>
-                <p>업데이트 버튼을 누를 때마다 지웠다 새로 씌여져야 합니다.</p>
-                <button onclick="q1()">업데이트</button>
-                <table>
-                    <thead>
-                        <tr>
-                            <td>거치대 위치</td>
-                            <td>거치대 수</td>
-                            <td>현재 거치된 따릉이 수</td>
-                        </tr>
-                    </thead>
-                    <tbody id="names-q1">
-                        <tr>
-                            <td>102. 망원역 1번출구 앞</td>
-                            <td>22</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td>103. 망원역 2번출구 앞</td>
-                            <td>16</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td>104. 합정역 1번출구 앞</td>
-                            <td>16</td>
-                            <td>0</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </body>
-        
-        </html>
-        ```
-        
-    - **[코드스니펫] Ajax 퀴즈1(보기1)**
-        
-        ```python
-        http://spartacodingclub.shop/ajaxquiz/02_1
-        ```
-        
-    - **[코드스니펫] Ajax 퀴즈1(완성1)**
-        
-        ```jsx
-        <!doctype html>
-        <html lang="ko">
-        
-        <head>
-            <meta charset="UTF-8">
-            <title>jQuery 연습하고 가기!</title>
-            <!-- jQuery를 import 합니다 -->
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        
-            <style type="text/css">
-                div.question-box {
-                    margin: 10px 0 20px 0;
-                }
-        
-                table {
-                    border: 1px solid;
-                    border-collapse: collapse;
-                }
-        
-                td,
-                th {
-                    padding: 10px;
-                    border: 1px solid;
-                }
-            </style>
-        
-            <script>
-                function q1() {
-                    $('#names-q1').empty();
-                    $.ajax({
-                        type: "GET",
-                        url: "http://spartacodingclub.shop/sparta_api/seoulbike",
-                        data: {},
-                        success: function (response) {
-                            let rows = response["getStationList"]["row"];
-                            for (let i = 0; i < rows.length; i++) {
-                                let rack_name = rows[i]['stationName'];
-                                let rack_cnt = rows[i]['rackTotCnt'];
-                                let bike_cnt = rows[i]['parkingBikeTotCnt'];
-                                let temp_html = `<tr>
-                                                    <td>${rack_name}</td>
-                                                    <td>${rack_cnt}</td>
-                                                    <td>${bike_cnt}</td>
-                                                </tr>`
-                                $('#names-q1').append(temp_html);
-                            }
-                        }
-                    })
-                }
-            </script>
-        
-        </head>
-        
-        <body>
-            <h1>jQuery +Ajax의 조합을 연습하자!</h1>
-        
-            <hr />
-        
-            <div class="question-box">
-                <h2>2. 서울시 OpenAPI(실시간 따릉이 현황)를 이용하기</h2>
-                <p>모든 위치의 따릉이 현황을 보여주세요</p>
-                <p>업데이트 버튼을 누를 때마다 지웠다 새로 씌여져야 합니다.</p>
-                <button onclick="q1()">업데이트</button>
-                <table>
-                    <thead>
-                        <tr>
-                            <td>거치대 위치</td>
-                            <td>거치대 수</td>
-                            <td>현재 거치된 따릉이 수</td>
-                        </tr>
-                    </thead>
-                    <tbody id="names-q1">
-                    </tbody>
-                </table>
-            </div>
-        </body>
-        
-        </html>
-        ```
-        
-    
-
-## 12**. Quiz_Ajax 연습하기(2)**
-
-<aside>
-👉 [한걸음 더]
-따릉이 대수가 5대 미만인 곳은 빨갛게 보여주면 어떨까요?
-
-</aside>
-
-- **[코드스니펫] Ajax 퀴즈1(보기2)**
-    
-    ```python
-    http://spartacodingclub.shop/ajaxquiz/02_2
-    ```
-    
-- **[코드스니펫] Ajax 퀴즈1(완성2)**
+- 3. 태그 내 html 입력하기
+    - <.div> ~ <./div> 내에,
+    동적으로 html을 넣고 싶을 땐? (예를 들어, 포스팅되면 → 카드 추가)
+    - 카드가 붙는 div 에 id를 추가해주는 것이 핵심!
     
     ```jsx
-    <!doctype html>
-    <html lang="ko">
-    
-    <head>
-        <meta charset="UTF-8">
-        <title>jQuery 연습하고 가기!</title>
-        <!-- jQuery를 import 합니다 -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    
-        <style type="text/css">
-            div.question-box {
-                margin: 10px 0 20px 0;
-            }
-    
-            table {
-                border: 1px solid;
-                border-collapse: collapse;
-            }
-    
-            td,
-            th {
-                padding: 10px;
-                border: 1px solid;
-            }
-    
-            .urgent {
-                color: red;
-                font-weight: bold;
-            }
-        </style>
-    
-        <script>
-            function q1() {
-                $('#names-q1').empty();
-                $.ajax({
-                    type: "GET",
-                    url: "http://spartacodingclub.shop/sparta_api/seoulbike",
-                    data: {},
-                    success: function (response) {
-                        let rows = response["getStationList"]["row"];
-                        for (let i = 0; i < rows.length; i++) {
-                            let rack_name = rows[i]['stationName'];
-                            let rack_cnt = rows[i]['rackTotCnt'];
-                            let bike_cnt = rows[i]['parkingBikeTotCnt'];
-                            let temp_html = '';
-                            if (bike_cnt < 5) {
-                                temp_html = `<tr class="urgent">
-                                    <td>${rack_name}</td>
-                                    <td>${rack_cnt}</td>
-                                    <td>${bike_cnt}</td>
-                                  </tr>`
-                            } else {
-                                temp_html = `<tr>
-                                    <td>${rack_name}</td>
-                                    <td>${rack_cnt}</td>
-                                    <td>${bike_cnt}</td>
-                                  </tr>`
-                            }
-                            $('#names-q1').append(temp_html);
-                        }
-                    }
-                })
-            }
-        </script>
-    
-    </head>
-    
-    <body>
-        <h1>jQuery+Ajax의 조합을 연습하자!</h1>
-    
-        <hr />
-    
-        <div class="question-box">
-            <h2>2. 서울시 OpenAPI(실시간 따릉이 현황)를 이용하기</h2>
-            <p>모든 위치의 따릉이 현황을 보여주세요</p>
-            <p>업데이트 버튼을 누를 때마다 지웠다 새로 씌여져야 합니다.</p>
-            <button onclick="q1()">업데이트</button>
-            <table>
-                <thead>
-                    <tr>
-                        <td>거치대 위치</td>
-                        <td>거치대 수</td>
-                        <td>현재 거치된 따릉이 수</td>
-                    </tr>
-                </thead>
-                <tbody id="names-q1">
-                </tbody>
-            </table>
+    <div class="mycards">
+        <div class="row row-cols-1 row-cols-md-4 g-4" id="cards-box">
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://movie-phinf.pstatic.net/20210728_221/1627440327667GyoYj_JPEG/movie_image.jpg"
+                         class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">영화 제목이 들어갑니다</h5>
+                        <p class="card-text">여기에 영화에 대한 설명이 들어갑니다.</p>
+                        <p>⭐⭐⭐</p>
+                        <p class="mycomment">나의 한줄 평을 씁니다</p>
+                    </div>
+                </div>
+            </div>
         </div>
-    </body>
+    </div>
+    ```
     
-    </html>
+    1) 버튼을 넣어보기
+    
+    ```jsx
+    let temp_html = `<button>나는 추가될 버튼이다!</button>`;
+    $('#cards-box').append(temp_html);
+    ```
+    
+    2) 버튼 말고, 카드를 넣어보기
+    
+    ```jsx
+    // 주의: 홑따옴표(')가 아닌 backtick(` / 숫자 1번 키) 사용.
+    // backtick을 사용하면 문자 중간에 Javascript 변수를 삽입 가능.
+    let title = '영화 제목이 들어갑니다';
+    
+    let temp_html = `<div class="col">
+    				            <div class="card h-100">
+    				                <img src="https://movie-phinf.pstatic.net/20210728_221/1627440327667GyoYj_JPEG/movie_image.jpg"
+    				                     class="card-img-top" alt="...">
+    				                <div class="card-body">
+    				                    <h5 class="card-title">${title}</h5>
+    				                    <p class="card-text">여기에 영화에 대한 설명이 들어갑니다.</p>
+    				                    <p>⭐⭐⭐</p>
+    				                    <p class="mycomment">나의 한줄 평을 씁니다</p>
+    				                </div>
+    				            </div>
+    				        </div>`;
+    $('#cards-box').append(temp_html);
     ```
     
 
-## **13. Quiz_Ajax 연습하기(3)**
+## **JQuery 적용하기(포스팅 박스)**
 
-- 1) ✍랜덤 르탄이 API를 이용하기
+- 1) 포스팅박스 열기/닫기 기능을 붙여보기
+    - **스파르타피디아 URL**
+        
+        ```html
+        http://spartacodingclub.shop/web/movie
+        ```
+        
+    - (1) 미리보기
+        
+        '영화 기록하기' 버튼을 누르면 숨겨진 창이 나타나고, '닫기'를 누르면 없어진다.
+        
+        ![Untitled]([https://s3-us-west-2.amazonaws.com/secure.notion-static.com/57650491-3d1e-4566-9c26-3990cf5337da/Untitled.png](https://teamsparta.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F57650491-3d1e-4566-9c26-3990cf5337da%2FUntitled.png?table=block&id=3a7fbb2c-276c-43d9-a93b-9ed6b5ae5a4c&spaceId=83c75a39-3aba-4ba4-a792-7aefe4b07895&width=2000&userId=&cache=v2))
+        
+    - (2) 포스팅 박스 열기 버튼에 function을 달기
+        
+        ```jsx
+        function open_box(){
+            alert('열린다!')
+        }
+        function close_box(){
+            alert('닫힌다!')
+        }
+        
+        <button onclick="open_box()">영화 기록하기</button>
+        
+        <button onclick="close_box()" type="button" class="btn btn-outline-dark">닫기</button>
+        ```
+        
+    - (3) 클릭 해서 포스팅 박스를 여닫게 하기
+        - 포스팅 박스에 id 값을 주기 (이미 가지고 있음!)
+            
+            ```jsx
+            <div class="mypost" id="post-box">
+                <div class="form-floating mb-3">
+                    <input id="url" type="email" class="form-control" placeholder="name@example.com">
+                    <label>영화URL</label>
+                </div>
+                <div class="input-group mb-3">
+                    <label class="input-group-text" for="inputGroupSelect01">별점</label>
+                    <select class="form-select" id="inputGroupSelect01">
+                        <option selected>-- 선택하기 --</option>
+                        <option value="1">⭐</option>
+                        <option value="2">⭐⭐</option>
+                        <option value="3">⭐⭐⭐</option>
+                        <option value="4">⭐⭐⭐⭐</option>
+                        <option value="5">⭐⭐⭐⭐⭐</option>
+                    </select>
+                </div>
+                <div class="form-floating">
+                    <textarea id="comment" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                              style="height: 100px"></textarea>
+                    <label for="floatingTextarea2">코멘트</label>
+                </div>
+                <div class="mybtns">
+                    <button type="button" class="btn btn-dark">기록하기</button>
+                    <button onclick="close_box()" type="button" class="btn btn-outline-dark">닫기</button>
+                </div>
+            </div>
+            ```
+            
+        - 포스팅 박스 제어하기
+            
+            ```jsx
+            function open_box(){
+                $('#post-box').show()
+            }
+            function close_box(){
+                $('#post-box').hide()
+            }
+```
+            
+        - post-box를 시작부터 감춰두기 (css의 display:none 속성!)
+            
+            ```css
+            .mypost {
+                width: 95%;
+                max-width: 500px;
+                margin: 20px auto 0px auto;
+                padding: 20px;
+                box-shadow: 0px 0px 3px 0px gray;
+                
+                display: none;
+            }
+            ```
+            
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+crossorigin="anonymous"></script>
+
+<title>스파르타 피디아</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+
+<style>
+* {
+font-family: 'Gowun Dodum', sans-serif;
+}
+
+.mytitle {
+width: 100%;
+height: 250px;
+
+background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://movie-phinf.pstatic.net/20210715_95/1626338192428gTnJl_JPEG/movie_image.jpg');
+background-position: center;
+background-size: cover;
+
+color: white;
+
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+
+.mytitle > button {
+width: 200px;
+height: 50px;
+
+background-color: transparent;
+color: white;
+
+border-radius: 50px;
+border: 1px solid white;
+
+margin-top: 10px;
+}
+
+.mytitle > button:hover {
+border: 2px solid white;
+}
+
+.mycomment {
+color: gray;
+}
+
+.mycards {
+margin: 20px auto 0px auto;
+width: 95%;
+max-width: 1200px;
+}
+
+.mypost {
+width: 95%;
+max-width: 500px;
+margin: 20px auto 0px auto;
+padding: 20px;
+box-shadow: 0px 0px 3px 0px gray;
+
+display: none;
+}
+
+.mybtns {
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: center;
+
+margin-top: 20px;
+}
+.mybtns > button {
+margin-right: 10px;
+}
+</style>
+<script>
+function open_box(){
+$('#post-box').show()
+}
+function close_box(){
+$('#post-box').hide()
+}
+</script>
+</head>
+
+<body>
+<div class="mytitle">
+<h1>내 생애 최고의 영화들</h1>
+<button onclick="open_box()">영화 기록하기</button>
+</div>
+<div class="mypost" id="post-box">
+<div class="form-floating mb-3">
+<input id="url" type="email" class="form-control" placeholder="name@example.com">
+<label>영화URL</label>
+</div>
+<div class="input-group mb-3">
+<label class="input-group-text" for="inputGroupSelect01">별점</label>
+<select class="form-select" id="inputGroupSelect01">
+<option selected>-- 선택하기 --</option>
+<option value="1">⭐</option>
+<option value="2">⭐⭐</option>
+<option value="3">⭐⭐⭐</option>
+<option value="4">⭐⭐⭐⭐</option>
+<option value="5">⭐⭐⭐⭐⭐</option>
+</select>
+</div>
+<div class="form-floating">
+<textarea id="comment" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+style="height: 100px"></textarea>
+<label for="floatingTextarea2">코멘트</label>
+</div>
+<div class="mybtns">
+<button type="button" class="btn btn-dark">기록하기</button>
+<button onclick="close_box()" type="button" class="btn btn-outline-dark">닫기</button>
+</div>
+</div>
+<div class="mycards">
+<div class="row row-cols-1 row-cols-md-4 g-4" id="cards-box">
+<div class="col">
+<div class="card h-100">
+<img src="https://movie-phinf.pstatic.net/20210728_221/1627440327667GyoYj_JPEG/movie_image.jpg"
+class="card-img-top" alt="...">
+<div class="card-body">
+<h5 class="card-title">영화 제목이 들어갑니다</h5>
+<p class="card-text">여기에 영화에 대한 설명이 들어갑니다.</p>
+<p>⭐⭐⭐</p>
+<p class="mycomment">나의 한줄 평을 씁니다</p>
+</div>
+</div>
+</div>
+<div class="col">
+<div class="card h-100">
+<img src="https://movie-phinf.pstatic.net/20210728_221/1627440327667GyoYj_JPEG/movie_image.jpg"
+class="card-img-top" alt="...">
+<div class="card-body">
+<h5 class="card-title">영화 제목이 들어갑니다</h5>
+<p class="card-text">여기에 영화에 대한 설명이 들어갑니다.</p>
+<p>⭐⭐⭐</p>
+<p class="mycomment">나의 한줄 평을 씁니다</p>
+</div>
+</div>
+</div>
+<div class="col">
+<div class="card h-100">
+<img src="https://movie-phinf.pstatic.net/20210728_221/1627440327667GyoYj_JPEG/movie_image.jpg"
+class="card-img-top" alt="...">
+<div class="card-body">
+<h5 class="card-title">영화 제목이 들어갑니다</h5>
+<p class="card-text">여기에 영화에 대한 설명이 들어갑니다.</p>
+<p>⭐⭐⭐</p>
+<p class="mycomment">나의 한줄 평을 씁니다</p>
+</div>
+</div>
+</div>
+<div class="col">
+<div class="card h-100">
+<img src="https://movie-phinf.pstatic.net/20210728_221/1627440327667GyoYj_JPEG/movie_image.jpg"
+class="card-img-top" alt="...">
+<div class="card-body">
+<h5 class="card-title">영화 제목이 들어갑니다</h5>
+<p class="card-text">여기에 영화에 대한 설명이 들어갑니다.</p>
+<p>⭐⭐⭐</p>
+<p class="mycomment">나의 한줄 평을 씁니다</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+
+</html>
+            
+- 완성코드
+        - **포스팅박스(완성)**
+            
+```JSX
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+
+    <title>스파르타 피디아</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: 'Gowun Dodum', sans-serif;
+        }
+
+        .mytitle {
+            width: 100%;
+            height: 250px;
+
+            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://movie-phinf.pstatic.net/20210715_95/1626338192428gTnJl_JPEG/movie_image.jpg');
+            background-position: center;
+            background-size: cover;
+
+            color: white;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mytitle > button {
+            width: 200px;
+            height: 50px;
+
+            background-color: transparent;
+            color: white;
+
+            border-radius: 50px;
+            border: 1px solid white;
+
+            margin-top: 10px;
+        }
+
+        .mytitle > button:hover {
+            border: 2px solid white;
+        }
+
+        .mycomment {
+            color: gray;
+        }
+
+        .mycards {
+            margin: 20px auto 0px auto;
+            width: 95%;
+            max-width: 1200px;
+        }
+
+        .mypost {
+            width: 95%;
+            max-width: 500px;
+            margin: 20px auto 0px auto;
+            padding: 20px;
+            box-shadow: 0px 0px 3px 0px gray;
+
+            display: none;
+        }
+
+        .mybtns {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+
+            margin-top: 20px;
+        }
+        .mybtns > button {
+            margin-right: 10px;
+        }
+    </style>
+    <script>
+        function open_box(){
+            $('#post-box').show()
+        }
+        function close_box(){
+            $('#post-box').hide()
+        }
+    </script>
+</head>
+
+<body>
+<div class="mytitle">
+    <h1>내 생애 최고의 영화들</h1>
+    <button onclick="open_box()">영화 기록하기</button>
+</div>
+<div class="mypost" id="post-box">
+    <div class="form-floating mb-3">
+        <input id="url" type="email" class="form-control" placeholder="name@example.com">
+        <label>영화URL</label>
+    </div>
+    <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupSelect01">별점</label>
+        <select class="form-select" id="inputGroupSelect01">
+            <option selected>-- 선택하기 --</option>
+            <option value="1">⭐</option>
+            <option value="2">⭐⭐</option>
+            <option value="3">⭐⭐⭐</option>
+            <option value="4">⭐⭐⭐⭐</option>
+            <option value="5">⭐⭐⭐⭐⭐</option>
+        </select>
+    </div>
+    <div class="form-floating">
+        <textarea id="comment" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                  style="height: 100px"></textarea>
+        <label for="floatingTextarea2">코멘트</label>
+    </div>
+    <div class="mybtns">
+        <button type="button" class="btn btn-dark">기록하기</button>
+        <button onclick="close_box()" type="button" class="btn btn-outline-dark">닫기</button>
+    </div>
+</div>
+<div class="mycards">
+    <div class="row row-cols-1 row-cols-md-4 g-4" id="cards-box">
+        <div class="col">
+            <div class="card h-100">
+                <img src="https://movie-phinf.pstatic.net/20210728_221/1627440327667GyoYj_JPEG/movie_image.jpg"
+                     class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">영화 제목이 들어갑니다</h5>
+                    <p class="card-text">여기에 영화에 대한 설명이 들어갑니다.</p>
+                    <p>⭐⭐⭐</p>
+                    <p class="mycomment">나의 한줄 평을 씁니다</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <img src="https://movie-phinf.pstatic.net/20210728_221/1627440327667GyoYj_JPEG/movie_image.jpg"
+                     class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">영화 제목이 들어갑니다</h5>
+                    <p class="card-text">여기에 영화에 대한 설명이 들어갑니다.</p>
+                    <p>⭐⭐⭐</p>
+                    <p class="mycomment">나의 한줄 평을 씁니다</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <img src="https://movie-phinf.pstatic.net/20210728_221/1627440327667GyoYj_JPEG/movie_image.jpg"
+                     class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">영화 제목이 들어갑니다</h5>
+                    <p class="card-text">여기에 영화에 대한 설명이 들어갑니다.</p>
+                    <p>⭐⭐⭐</p>
+                    <p class="mycomment">나의 한줄 평을 씁니다</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <img src="https://movie-phinf.pstatic.net/20210728_221/1627440327667GyoYj_JPEG/movie_image.jpg"
+                     class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">영화 제목이 들어갑니다</h5>
+                    <p class="card-text">여기에 영화에 대한 설명이 들어갑니다.</p>
+                    <p>⭐⭐⭐</p>
+                    <p class="mycomment">나의 한줄 평을 씁니다</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
+```
+            
+
+## **06. Quiz_JQuery 연습하기 (1)**
+
+- ✍두 개를 같이 연습해야 빨리 늘어요!
     
     <aside>
-    👻 힌트 : 이미지 바꾸기 / 텍스트 바꾸기
+    👉 30분 정도 각자 해보고, 튜터와 함께 풀이해봅시다!
+    (퀴즈 코드의 빈 칸을 채워서, 완성본으로 만들기!)
     
     </aside>
     
-    - 이미지 바꾸기 : `$("#아이디값").attr("src", 이미지URL);`
-    - 텍스트 바꾸기 : `$("#아이디값").text("바꾸고 싶은 텍스트");`
-    - **[코드스니펫] 르탄이 API**
+    - **[코드스니펫] 퀴즈 완성본보기**
         
-        ```html
-        http://spartacodingclub.shop/sparta_api/rtan
+        ```css
+        http://spartacodingclub.shop/ajaxquiz/00_0
         ```
         
-    - **[코드스니펫] Ajax 퀴즈2**
+    - Q. 퀴즈 코드
         
-        ```html
-        <!doctype html>
-        <html lang="ko">
-          <head>
-            <meta charset="UTF-8">
-            <title>JQuery 연습하고 가기!</title>
-            <!-- JQuery를 import 합니다 -->
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <aside>
+        👉 파일을 하나 만들고 아래 코드를 붙여넣어 주세요.
+        
+        </aside>
+        
+        - **[코드스니펫] Jquery 퀴즈**
             
-            <style type="text/css">
-              div.question-box {
-                margin: 10px 0 20px 0;
-              }
-              div.question-box > div {
-                margin-top: 30px;
-              }
-              
-            </style>
-        
-            <script>
-              function q1() {
-                // 여기에 코드를 입력하세요
-              }
-            </script>
-        
-          </head>
-          <body>
-            <h1>JQuery+Ajax의 조합을 연습하자!</h1>
-        
-            <hr/>
-        
-            <div class="question-box">
-              <h2>3. 르탄이 API를 이용하기!</h2>
-              <p>아래를 르탄이 사진으로 바꿔주세요</p>
-              <p>업데이트 버튼을 누를 때마다 지웠다 새로 씌여져야 합니다.</p>
-              <button onclick="q1()">르탄이 나와</button>
-              <div>
-                <img id="img-rtan" width="300" src="http://spartacodingclub.shop/static/images/rtans/SpartaIcon11.png"/>
-                <h1 id="text-rtan">나는 ㅇㅇㅇ하는 르탄이!</h1>
-              </div>
-            </div>
-          </body>
-        </html>
-        ```
-        
-    - **[코드스니펫] Ajax 퀴즈2(보기)**
-        
-        ```python
-        http://spartacodingclub.shop/ajaxquiz/08
-        ```
-        
-    - **[코드스니펫] Ajax 퀴즈2(완성)**
+            ```jsx
+            <!doctype html>
+            <html lang="ko">
+            
+            <head>
+                <meta charset="UTF-8">
+                <title>jQuery 연습하고 가기!</title>
+            
+                <!-- JQuery를 import 합니다 -->
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            
+                <style type="text/css">
+                    div.question-box {
+                        margin: 10px 0 20px 0;
+                    }
+                </style>
+            
+                <script>
+                    function q1() {
+                        // 1. input-q1의 입력값을 가져온다. $('# .... ').val() 이렇게!
+                        // 2. 만약 입력값이 빈칸이면 if(입력값=='')
+                        // 3. alert('입력하세요!') 띄우기
+                        // 4. alert(입력값) 띄우기
+                    }
+            
+                    function q2() {
+                        // 1. input-q2 값을 가져온다.
+                        // 2. 만약 가져온 값에 @가 있으면 (includes 이용하기 - 구글링!)
+                        // 3. info@gmail.com -> gmail 만 추출해서 ( .split('@') 을 이용하자!)
+                        // 4. alert(도메인 값);으로 띄우기
+                        // 5. 만약 이메일이 아니면 '이메일이 아닙니다.' 라는 얼럿 띄우기
+                    }
+            
+                    function q3() {
+                        // 1. input-q3 값을 가져온다. let txt = ... q1, q2에서 했던 걸 참고!
+                        // 2. 가져온 값을 이용해 names-q3에 붙일 태그를 만든다. (let temp_html = `<li>${txt}</li>`) 요렇게!
+                        // 3. 만들어둔 temp_html을 names-q3에 붙인다.(jQuery의 $('...').append(temp_html)을 이용하면 굿!)
+                    }
+            
+                    function q3_remove() {
+                        // 1. names-q3의 내부 태그를 모두 비운다.(jQuery의 $('....').empty()를 이용하면 굿!)
+                    }
+            
+                </script>
+            
+            </head>
+            
+            <body>
+                <h1>jQuery + Javascript의 조합을 연습하자!</h1>
+            
+                <div class="question-box">
+                    <h2>1. 빈칸 체크 함수 만들기</h2>
+                    <h5>1-1. 버튼을 눌렀을 때 입력한 글자로 얼럿 띄우기</h5>
+                    <h5>[완성본]1-2. 버튼을 눌렀을 때 칸에 아무것도 없으면 "입력하세요!" 얼럿 띄우기</h5>
+                    <input id="input-q1" type="text" /> <button onclick="q1()">클릭</button>
+                </div>
+                <hr />
+                <div class="question-box">
+                    <h2>2. 이메일 판별 함수 만들기</h2>
+                    <h5>2-1. 버튼을 눌렀을 때 입력받은 이메일로 얼럿 띄우기</h5>
+                    <h5>2-2. 이메일이 아니면(@가 없으면) '이메일이 아닙니다'라는 얼럿 띄우기</h5>
+                    <h5>[완성본]2-3. 이메일 도메인만 얼럿 띄우기</h5>
+                    <input id="input-q2" type="text" /> <button onclick="q2()">클릭</button>
+                </div>
+                <hr />
+                <div class="question-box">
+                    <h2>3. HTML 붙이기/지우기 연습</h2>
+                    <h5>3-1. 이름을 입력하면 아래 나오게 하기</h5>
+                    <h5>[완성본]3-2. 다지우기 버튼을 만들기</h5>
+                    <input id="input-q3" type="text" placeholder="여기에 이름을 입력" />
+                    <button onclick="q3()">이름 붙이기</button>
+                    <button onclick="q3_remove()">다지우기</button>
+                    <ul id="names-q3">
+                        <li>세종대왕</li>
+                        <li>임꺽정</li>
+                    </ul>
+                </div>
+            </body>
+            
+            </html>
+            ```
+            
+
+## **07. Quiz_JQuery 연습하기 (2)**
+
+- A. 같이 풀어보기
+    - **[코드스니펫] Jquery 퀴즈(완성)**
         
         ```jsx
         <!doctype html>
         <html lang="ko">
-          <head>
+        
+        <head>
             <meta charset="UTF-8">
-            <title>JQuery 연습하고 가기!</title>
+            <title>jQuery 연습하고 가기!</title>
+        
             <!-- JQuery를 import 합니다 -->
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-            
+        
             <style type="text/css">
-              div.question-box {
-                margin: 10px 0 20px 0;
-              }
-              div.question-box > div {
-                margin-top: 30px;
-              }
-              
+                div.question-box {
+                    margin: 10px 0 20px 0;
+                }
             </style>
         
             <script>
-              function q1() {
-                $.ajax({
-                  type: "GET",
-                  url: "http://spartacodingclub.shop/sparta_api/rtan",
-                  data: {},
-                  success: function(response){
-                      let imgurl = response['url'];
-                      $("#img-rtan").attr("src", imgurl);
-        
-                      let msg = response['msg'];
-                      $("#text-rtan").text(msg);
+                function q1() {
+                    // 1. input-q1의 입력값을 가져온다.
+                    let value = $('#input-q1').val();
+                    // 2. 만약 입력값이 빈칸이면 if(입력값=='')
+                    if (value == '') {
+                        // 3. alert('입력하세요!') 띄우기
+                        alert('입력하세요!');
+                    } else {
+                        // 4. alert(입력값) 띄우기
+                        alert(value);
                     }
-                  })
-              }
+                }
+        
+                function q2() {
+                    // 1. input-q2 값을 가져온다.
+                    let email = $('#input-q2').val();
+                    // 2. 만약 가져온 값에 @가 있으면 (includes 이용하기 - 찾아보자!)
+                    if (email.includes('@')) {
+                        // 3. info@gmail.com -> gmail 만 추출해서
+                        // 4. alert(도메인 값);으로 띄우기
+                        let domainWithDot = email.split('@')[1];
+                        let onlyDomain = domainWithDot.split('.')[0];
+                        alert(onlyDomain);
+                    } else {
+                        // 5. 만약 이메일이 아니면 '이메일이 아닙니다.' 라는 얼럿 띄우기
+                        alert('이메일이 아닙니다.');
+                    }
+                }
+        
+                function q3() {
+                    // 1. input-q3 값을 가져온다.
+                    let newName = $('#input-q3').val();
+                    if (newName == '') {
+                        alert('이름을 입력하세요');
+                        return;
+                    }
+                    // 2. 가져온 값을 이용해 names-q3에 붙일 태그를 만든다. (let temp_html = `<li>${가져온 값}</li>`)
+                    let temp_html = `<li>${newName}</li>`;
+                    // 3. 만들어둔 temp_html을 names-q3에 붙인다.(jQuery의 $('...').append(temp_html)을 이용하면 굿!)
+                    $('#names-q3').append(temp_html);
+                }
+        
+                function q3_remove() {
+                    // 1. names-q3의 내부 태그를 모두 비운다.(jQuery의 $('....').empty()를 이용하면 굿!)
+                    $('#names-q3').empty();
+                }
+        
             </script>
         
-          </head>
-          <body>
-            <h1>JQuery+Ajax의 조합을 연습하자!</h1>
+        </head>
         
-            <hr/>
+        <body>
+            <h1>jQuery + Javascript의 조합을 연습하자!</h1>
         
             <div class="question-box">
-              <h2>3. 르탄이 API를 이용하기!</h2>
-              <p>아래를 르탄이 사진으로 바꿔주세요</p>
-              <p>업데이트 버튼을 누를 때마다 지웠다 새로 씌여져야 합니다.</p>
-              <button onclick="q1()">르탄이 나와</button>
-              <div>
-                <img id="img-rtan" width="300" src="http://spartacodingclub.shop/static/images/rtans/SpartaIcon11.png"/>
-                <h1 id="text-rtan">나는 ㅇㅇㅇ하는 르탄이!</h1>
-              </div>
+                <h2>1. 빈칸 체크 함수 만들기</h2>
+                <h5>1-1. 버튼을 눌렀을 때 입력한 글자로 얼럿 띄우기</h5>
+                <h5>[완성본]1-2. 버튼을 눌렀을 때 칸에 아무것도 없으면 "입력하세요!" 얼럿 띄우기</h5>
+                <input id="input-q1" type="text" /> <button onclick="q1()">클릭</button>
             </div>
-          </body>
+            <hr />
+            <div class="question-box">
+                <h2>2. 이메일 판별 함수 만들기</h2>
+                <h5>2-1. 버튼을 눌렀을 때 입력받은 이메일로 얼럿 띄우기</h5>
+                <h5>2-2. 이메일이 아니면(@가 없으면) '이메일이 아닙니다'라는 얼럿 띄우기</h5>
+                <h5>[완성본]2-3. 이메일 도메인만 얼럿 띄우기</h5>
+                <input id="input-q2" type="text" /> <button onclick="q2()">클릭</button>
+            </div>
+            <hr />
+            <div class="question-box">
+                <h2>3. HTML 붙이기/지우기 연습</h2>
+                <h5>3-1. 이름을 입력하면 아래 나오게 하기</h5>
+                <h5>[완성본]3-2. 다지우기 버튼을 만들기</h5>
+                <input id="input-q3" type="text" placeholder="여기에 이름을 입력" />
+                <button onclick="q3()">이름 붙이기</button>
+                <button onclick="q3_remove()">다지우기</button>
+                <ul id="names-q3">
+                    <li>세종대왕</li>
+                    <li>임꺽정</li>
+                </ul>
+            </div>
+        </body>
+        
         </html>
         ```
+        
+    
