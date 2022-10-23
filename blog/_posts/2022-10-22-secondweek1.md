@@ -122,20 +122,22 @@ comments: true
             <input id="url" type="email" class="form-control" placeholder="name@example.com">
             <label>영화URL</label>
         </div>
-        ```
-        
-        ```jsx
+```
+
+
+```jsx
         // 크롬 개발자도구 콘솔창에서 쳐보기
         // id 값이 url인 곳을 가리키고, val()로 값을 가져온다.
         $('#url').val();
         
         // 입력할때는?
         $('#url').val('이렇게 하면 입력이 가능하지만!');
-        ```
+```
         
     - 2. div 보이기 / 숨기기
-        
-        ```jsx
+
+
+```jsx
         <div class="mypost" id="post-box">
             <div class="form-floating mb-3">
                 <input id="url" type="email" class="form-control" placeholder="name@example.com">
@@ -162,16 +164,16 @@ comments: true
                 <button type="button" class="btn btn-outline-dark">닫기</button>
             </div>
         </div>
-        ```
-        
-        ```jsx
+```
+
+```jsx
         // 크롬 개발자도구 콘솔창에 쳐보기
         // id 값이 post-box인 곳을 가리키고, hide()로 안보이게 한다.
         $('#post-box').hide();
         
         // show()로 보이게 한다.
         $('#post-box').show();
-        ```
+```
         
 
 ## **JQuery 다뤄보기 (2)**
