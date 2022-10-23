@@ -2,7 +2,7 @@
 layout: post
 title: 스파르타코딩클럽 웹개발 종합반 - 2주차
 subtitle: Ajax 연습하기
-tags: [Ajax]
+tags: [Ajax, Jquery]
 comments: true
 ---
 
@@ -434,7 +434,7 @@ success: function(response){
 
 - 소스코드
 
-```jsx
+    ```jsx
         <!doctype html>
         <html lang="ko">
           <head>
