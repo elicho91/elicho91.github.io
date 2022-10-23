@@ -116,7 +116,7 @@ comments: true
         
     - 1. input 박스의 값을 가져와보기
         
-        ```jsx
+```jsx
         <div class="form-floating mb-3">
             <input id="url" type="email" class="form-control" placeholder="name@example.com">
             <label>영화URL</label>
@@ -300,7 +300,7 @@ comments: true
             function close_box(){
                 $('#post-box').hide()
             }
-            ```
+```
             
         - post-box를 시작부터 감춰두기 (css의 display:none 속성!)
             
