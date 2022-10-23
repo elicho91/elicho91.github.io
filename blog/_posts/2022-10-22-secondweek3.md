@@ -198,11 +198,11 @@ $.ajax({
         
 - 복습할 때 참고! - 해설) 모든 구의 미세먼지 값을 찍어보기
             1. 미세먼지 데이터가 어디에 있는지 찾기
-                
+
                 ![Untitle](https://teamsparta.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fcf6e770d-9618-4c1d-beef-afb23b3cd2c9%2FUntitled.png?table=block&id=5a4d82fc-9704-44d0-8c82-6957b2259345&spaceId=83c75a39-3aba-4ba4-a792-7aefe4b07895&width=480&userId=&cache=v2)
                 
                 위 그림과 같이 RealtimeCityAir > row 에 미세먼지 데이터가 들어있음.
-                
+
                 ```jsx
                 $.ajax({
                   type: "GET",
