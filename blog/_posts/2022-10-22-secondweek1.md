@@ -100,13 +100,11 @@ comments: true
         
     - jQuery를 사용하는 방법
         
-        <aside>
-        👉 css와 마찬가지로, jQuery를 쓸 때에도 "가리켜야" → 조작할 수 있다.
         예) 특정 인풋박스의 값을 → 가져와줘!
         예) 특정 div를 → 안보이게 해줘!
         
         css에서는 선택자로 class를 쓰고,
-        jQuery에서는 id 값을 통해 특정 버튼/인풋박스/div/.. 등을 가리키게 됩니다.
+        jQuery에서는 id 값을 통해 특정 버튼/인풋박스/div/.. 등을 가리키게 된다.
         
         
         </aside>
@@ -115,190 +113,6 @@ comments: true
 ## **JQuery 다뤄보기 (1)**
 
 - 자주쓰는 jQuery들 다뤄보기  
-        
-    - **[코드스니펫] 1주차 완성본**
-        
-        ```jsx
-        <!doctype html>
-        <html lang="en">
-        
-        <head>
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        
-            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-                  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-                    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-                    crossorigin="anonymous"></script>
-        
-            <title>스파르타 피디아</title>
-        
-            <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
-        
-            <style>
-                * {
-                    font-family: 'Gowun Dodum', sans-serif;
-                }
-        
-                .mytitle {
-                    width: 100%;
-                    height: 250px;
-        
-                    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://movie-phinf.pstatic.net/20210715_95/1626338192428gTnJl_JPEG/movie_image.jpg');
-                    background-position: center;
-                    background-size: cover;
-        
-                    color: white;
-        
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
-                }
-        
-                .mytitle > button {
-                    width: 200px;
-                    height: 50px;
-        
-                    background-color: transparent;
-                    color: white;
-        
-                    border-radius: 50px;
-                    border: 1px solid white;
-        
-                    margin-top: 10px;
-                }
-        
-                .mytitle > button:hover {
-                    border: 2px solid white;
-                }
-        
-                .mycomment {
-                    color: gray;
-                }
-        
-                .mycards {
-                    margin: 20px auto 0px auto;
-                    width: 95%;
-                    max-width: 1200px;
-                }
-        
-                .mypost {
-                    width: 95%;
-                    max-width: 500px;
-                    margin: 20px auto 0px auto;
-                    padding: 20px;
-                    box-shadow: 0px 0px 3px 0px gray;
-                }
-        
-                .mybtns {
-                    display: flex;
-                    flex-direction: row;
-                    align-items: center;
-                    justify-content: center;
-        
-                    margin-top: 20px;
-                }
-                .mybtns > button {
-                    margin-right: 10px;
-                }
-            </style>
-            <script>
-                function hey(){
-                    alert('안녕!');
-                }
-            </script>
-        </head>
-        
-        <body>
-        <div class="mytitle">
-            <h1>내 생애 최고의 영화들</h1>
-            <button onclick="hey()">영화 기록하기</button>
-        </div>
-        <div class="mypost">
-            <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                <label for="floatingInput">영화URL</label>
-            </div>
-            <div class="input-group mb-3">
-                <label class="input-group-text" for="inputGroupSelect01">별점</label>
-                <select class="form-select" id="inputGroupSelect01">
-                    <option selected>-- 선택하기 --</option>
-                    <option value="1">⭐</option>
-                    <option value="2">⭐⭐</option>
-                    <option value="3">⭐⭐⭐</option>
-                    <option value="4">⭐⭐⭐⭐</option>
-                    <option value="5">⭐⭐⭐⭐⭐</option>
-                </select>
-            </div>
-            <div class="form-floating">
-                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
-                          style="height: 100px"></textarea>
-                <label for="floatingTextarea2">코멘트</label>
-            </div>
-            <div class="mybtns">
-                <button type="button" class="btn btn-dark">기록하기</button>
-                <button type="button" class="btn btn-outline-dark">닫기</button>
-            </div>
-        </div>
-        <div class="mycards">
-            <div class="row row-cols-1 row-cols-md-4 g-4">
-                <div class="col">
-                    <div class="card h-100">
-                        <img src="https://movie-phinf.pstatic.net/20210728_221/1627440327667GyoYj_JPEG/movie_image.jpg"
-                             class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">영화 제목이 들어갑니다</h5>
-                            <p class="card-text">여기에 영화에 대한 설명이 들어갑니다.</p>
-                            <p>⭐⭐⭐</p>
-                            <p class="mycomment">나의 한줄 평을 씁니다</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100">
-                        <img src="https://movie-phinf.pstatic.net/20210728_221/1627440327667GyoYj_JPEG/movie_image.jpg"
-                             class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">영화 제목이 들어갑니다</h5>
-                            <p class="card-text">여기에 영화에 대한 설명이 들어갑니다.</p>
-                            <p>⭐⭐⭐</p>
-                            <p class="mycomment">나의 한줄 평을 씁니다</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100">
-                        <img src="https://movie-phinf.pstatic.net/20210728_221/1627440327667GyoYj_JPEG/movie_image.jpg"
-                             class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">영화 제목이 들어갑니다</h5>
-                            <p class="card-text">여기에 영화에 대한 설명이 들어갑니다.</p>
-                            <p>⭐⭐⭐</p>
-                            <p class="mycomment">나의 한줄 평을 씁니다</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100">
-                        <img src="https://movie-phinf.pstatic.net/20210728_221/1627440327667GyoYj_JPEG/movie_image.jpg"
-                             class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">영화 제목이 들어갑니다</h5>
-                            <p class="card-text">여기에 영화에 대한 설명이 들어갑니다.</p>
-                            <p>⭐⭐⭐</p>
-                            <p class="mycomment">나의 한줄 평을 씁니다</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </body>
-        
-        </html>
-        ```
         
     - 1. input 박스의 값을 가져와보기
         
@@ -359,10 +173,10 @@ comments: true
         ```
         
 
-## **04. JQuery 다뤄보기 (2)**
+## **JQuery 다뤄보기 (2)**
 
 - 3. 태그 내 html 입력하기
-    - <div> ~ </div> 내에,
+    - <.div> ~ <./div> 내에,
     동적으로 html을 넣고 싶을 땐? (예를 들어, 포스팅되면 → 카드 추가)
     - 카드가 붙는 div 에 id를 추가해주는 것이 핵심!
     
@@ -395,9 +209,8 @@ comments: true
     2) 버튼 말고, 카드를 넣어보기
     
     ```jsx
-    // 주의: 홑따옴표(')가 아닌 backtick(`)으로 감싸야 합니다.
-    // 숫자 1번 키 왼쪽의 버튼을 누르면 backtick(`)이 입력됩니다.
-    // backtick을 사용하면 문자 중간에 Javascript 변수를 삽입할 수 있습니다.
+    // 주의: 홑따옴표(')가 아닌 backtick(` / 숫자 1번 키) 사용.
+    // backtick을 사용하면 문자 중간에 Javascript 변수를 삽입 가능.
     let title = '영화 제목이 들어갑니다';
     
     let temp_html = `<div class="col">
@@ -416,20 +229,20 @@ comments: true
     ```
     
 
-## **05. JQuery 적용하기(포스팅 박스)**
+## **JQuery 적용하기(포스팅 박스)**
 
 - 1) 포스팅박스 열기/닫기 기능을 붙여보기
-    - **[코드스니펫] 스파르타피디아 URL**
+    - **스파르타피디아 URL**
         
         ```html
         http://spartacodingclub.shop/web/movie
         ```
         
-    - (1) 완성된 모습 먼저 보기
+    - (1) 미리보기
         
-        '영화 기록하기' 버튼을 누르면 숨겨진 창이 나타나고, '닫기'를 누르면 없어집니다.
+        '영화 기록하기' 버튼을 누르면 숨겨진 창이 나타나고, '닫기'를 누르면 없어진다.
         
-        ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/57650491-3d1e-4566-9c26-3990cf5337da/Untitled.png)
+        ![Untitled]([https://s3-us-west-2.amazonaws.com/secure.notion-static.com/57650491-3d1e-4566-9c26-3990cf5337da/Untitled.png](https://teamsparta.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F57650491-3d1e-4566-9c26-3990cf5337da%2FUntitled.png?table=block&id=3a7fbb2c-276c-43d9-a93b-9ed6b5ae5a4c&spaceId=83c75a39-3aba-4ba4-a792-7aefe4b07895&width=2000&userId=&cache=v2))
         
     - (2) 포스팅 박스 열기 버튼에 function을 달기
         
@@ -503,8 +316,192 @@ comments: true
             }
             ```
             
-    - (4) 완성코드
-        - **[코드스니펫] 포스팅박스(완성)**
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+crossorigin="anonymous"></script>
+
+<title>스파르타 피디아</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+
+<style>
+* {
+font-family: 'Gowun Dodum', sans-serif;
+}
+
+.mytitle {
+width: 100%;
+height: 250px;
+
+background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://movie-phinf.pstatic.net/20210715_95/1626338192428gTnJl_JPEG/movie_image.jpg');
+background-position: center;
+background-size: cover;
+
+color: white;
+
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+
+.mytitle > button {
+width: 200px;
+height: 50px;
+
+background-color: transparent;
+color: white;
+
+border-radius: 50px;
+border: 1px solid white;
+
+margin-top: 10px;
+}
+
+.mytitle > button:hover {
+border: 2px solid white;
+}
+
+.mycomment {
+color: gray;
+}
+
+.mycards {
+margin: 20px auto 0px auto;
+width: 95%;
+max-width: 1200px;
+}
+
+.mypost {
+width: 95%;
+max-width: 500px;
+margin: 20px auto 0px auto;
+padding: 20px;
+box-shadow: 0px 0px 3px 0px gray;
+
+display: none;
+}
+
+.mybtns {
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: center;
+
+margin-top: 20px;
+}
+.mybtns > button {
+margin-right: 10px;
+}
+</style>
+<script>
+function open_box(){
+$('#post-box').show()
+}
+function close_box(){
+$('#post-box').hide()
+}
+</script>
+</head>
+
+<body>
+<div class="mytitle">
+<h1>내 생애 최고의 영화들</h1>
+<button onclick="open_box()">영화 기록하기</button>
+</div>
+<div class="mypost" id="post-box">
+<div class="form-floating mb-3">
+<input id="url" type="email" class="form-control" placeholder="name@example.com">
+<label>영화URL</label>
+</div>
+<div class="input-group mb-3">
+<label class="input-group-text" for="inputGroupSelect01">별점</label>
+<select class="form-select" id="inputGroupSelect01">
+<option selected>-- 선택하기 --</option>
+<option value="1">⭐</option>
+<option value="2">⭐⭐</option>
+<option value="3">⭐⭐⭐</option>
+<option value="4">⭐⭐⭐⭐</option>
+<option value="5">⭐⭐⭐⭐⭐</option>
+</select>
+</div>
+<div class="form-floating">
+<textarea id="comment" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+style="height: 100px"></textarea>
+<label for="floatingTextarea2">코멘트</label>
+</div>
+<div class="mybtns">
+<button type="button" class="btn btn-dark">기록하기</button>
+<button onclick="close_box()" type="button" class="btn btn-outline-dark">닫기</button>
+</div>
+</div>
+<div class="mycards">
+<div class="row row-cols-1 row-cols-md-4 g-4" id="cards-box">
+<div class="col">
+<div class="card h-100">
+<img src="https://movie-phinf.pstatic.net/20210728_221/1627440327667GyoYj_JPEG/movie_image.jpg"
+class="card-img-top" alt="...">
+<div class="card-body">
+<h5 class="card-title">영화 제목이 들어갑니다</h5>
+<p class="card-text">여기에 영화에 대한 설명이 들어갑니다.</p>
+<p>⭐⭐⭐</p>
+<p class="mycomment">나의 한줄 평을 씁니다</p>
+</div>
+</div>
+</div>
+<div class="col">
+<div class="card h-100">
+<img src="https://movie-phinf.pstatic.net/20210728_221/1627440327667GyoYj_JPEG/movie_image.jpg"
+class="card-img-top" alt="...">
+<div class="card-body">
+<h5 class="card-title">영화 제목이 들어갑니다</h5>
+<p class="card-text">여기에 영화에 대한 설명이 들어갑니다.</p>
+<p>⭐⭐⭐</p>
+<p class="mycomment">나의 한줄 평을 씁니다</p>
+</div>
+</div>
+</div>
+<div class="col">
+<div class="card h-100">
+<img src="https://movie-phinf.pstatic.net/20210728_221/1627440327667GyoYj_JPEG/movie_image.jpg"
+class="card-img-top" alt="...">
+<div class="card-body">
+<h5 class="card-title">영화 제목이 들어갑니다</h5>
+<p class="card-text">여기에 영화에 대한 설명이 들어갑니다.</p>
+<p>⭐⭐⭐</p>
+<p class="mycomment">나의 한줄 평을 씁니다</p>
+</div>
+</div>
+</div>
+<div class="col">
+<div class="card h-100">
+<img src="https://movie-phinf.pstatic.net/20210728_221/1627440327667GyoYj_JPEG/movie_image.jpg"
+class="card-img-top" alt="...">
+<div class="card-body">
+<h5 class="card-title">영화 제목이 들어갑니다</h5>
+<p class="card-text">여기에 영화에 대한 설명이 들어갑니다.</p>
+<p>⭐⭐⭐</p>
+<p class="mycomment">나의 한줄 평을 씁니다</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+
+</html>
+            
+    - 완성코드
+        - **포스팅박스(완성)**
             
             ```jsx
             <!doctype html>
