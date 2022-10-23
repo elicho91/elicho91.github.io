@@ -98,7 +98,7 @@ $('#names-q1').append(temp_html);
 
 - 소스코드
 
-        ```jsx
+```jsx
         <!doctype html>
         <html lang="ko">
         
@@ -166,7 +166,7 @@ $('#names-q1').append(temp_html);
         </body>
         
         </html>
-        ```
+```
 
 ## **Ajax 연습하기 (2)**
 
@@ -433,8 +433,8 @@ success: function(response){
 </html>
 
     - 소스코드
-        
-        ```jsx
+
+            ```jsx
         <!doctype html>
         <html lang="ko">
           <head>
