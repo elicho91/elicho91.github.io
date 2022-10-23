@@ -1,10 +1,98 @@
 ---
 layout: post
 title: 스파르타코딩클럽 웹개발 종합반 - 2주차
-subtitle: 2-3
-tags: [Ajax, jQuery]
+subtitle: 2-2
+tags: [JSON]
 comments: true
 ---
+
+## **08. 서버-클라이언트 통신 이해하기**
+
+- 1) 서버→클라이언트: "JSON"을 이해하기
+    - 서울시 OpenAPI에 접속해보기
+        - **[코드스니펫] 서울시 OpenAPI**
+            
+            ```html
+            http://openapi.seoul.go.kr:8088/6d4d776b466c656533356a4b4b5872/json/RealtimeCityAir/1/99
+            ```
+            
+    - 크롬 익스텐션 JSONView를 설치해볼까요? 그럼 좀 더 예쁘게 JSON을 볼 수 있습니다.
+        - **[코드스니펫] Jsonview**
+            
+            ```html
+            https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=ko
+            ```
+            
+    - JSON은, Key:Value로 이루어져 있습니다. 자료형 Dictionary와 아주- 유사하죠
+        
+        <aside>
+        👉 위 예제에서는 RealtimeCityAir라는 키 값에 딕셔너리 형 value가 들어가있고,
+        그 안에 row라는 키 값에는 리스트형 value가 들어가있습니다.
+        
+        </aside>
+        
+        ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8f29b7c4-6b71-4b7f-9013-a8afb772dd1a/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8f29b7c4-6b71-4b7f-9013-a8afb772dd1a/Untitled.png)
+        
+- 2) 클라이언트→서버: GET 요청 이해하기
+    
+    <aside>
+    👉 **API는 은행 창구와 같은 것!**
+    
+    같은 예금 창구에서도 개인 고객이냐 기업 고객이냐에 따라
+    가져와야 하는 것 / 처리해주는 것이 다른 것처럼,
+    
+    클라이언트가 요청 할 때에도, "타입"이라는 것이 존재합니다.
+    
+    * GET        →      통상적으로! 데이터 조회(Read)를 요청할 때
+                               예) 영화 목록 조회
+    
+    * POST     →      통상적으로! 데이터 생성(Create), 변경(Update), 삭제(Delete) 요청 할 때
+                               예) 회원가입, 회원탈퇴, 비밀번호 수정
+    
+    이 중에서 오늘은 GET 방식에 대해 배워보겠습니다. (POST는 4주차에 배웁니다)
+    
+    </aside>
+    
+    - **GET**
+        
+        [기생충](https://movie.naver.com/movie/bi/mi/basic.nhn?code=161967)
+        
+        ```jsx
+        https://movie.naver.com/movie/bi/mi/basic.nhn?code=161967
+        
+        위 주소는 크게 두 부분으로 쪼개집니다. 바로 "?"가 쪼개지는 지점인데요.
+        "?" 기준으로 앞부분이 <서버 주소>, 뒷부분이 [영화 번호] 입니다.
+        
+        * 서버 주소: https://movie.naver.com/movie/bi/mi/basic.nhn
+        * 영화 정보: code=161967
+        ```
+        
+        <aside>
+        👉 **GET 방식으로 데이터를 전달하는 방법**
+        
+        ?  : 여기서부터 전달할 데이터가 작성된다는 의미입니다.
+        & : 전달할 데이터가 더 있다는 뜻입니다.
+        
+        예시) google.com/search?q=아이폰&sourceid=chrome&ie=UTF-8
+        
+                 위 주소는 google.com의 search 창구에 다음 정보를 전달합니다!
+                 q=아이폰                        (검색어)
+                 sourceid=chrome        (브라우저 정보)
+                 ie=UTF-8                      (인코딩 정보)
+        
+        </aside>
+        
+        <aside>
+        👉 **여기서 잠깐, 그럼 code라는 이름으로 영화번호를 주자!는 것은
+        누가 정하는 것일까요?**
+        
+        → 네, 바로 프론트엔드 개발자와 백엔드 개발자가 미리 정해둔 **약속**입니다.
+        
+        프론트엔드: *"code라는 이름으로 영화번호를 주면 될까요?"*
+        백엔드: *"네 그렇게 하시죠. 그럼 code로 영화번호가 들어온다고 생각하고 코딩하고 있을게요"*
+        
+        </aside>
+        
 
 ## **09. Ajax 시작하기**
 
