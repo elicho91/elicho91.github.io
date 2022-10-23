@@ -500,11 +500,10 @@ class="card-img-top" alt="...">
 
 </html>
             
-- 완성코드
-        - **포스팅박스(완성)**
+- 소스코드
 
 
-```JSX
+```jsx
 <!doctype html>
 <html lang="en">
 
