@@ -502,7 +502,8 @@ class="card-img-top" alt="...">
             
 - 완성코드
         - **포스팅박스(완성)**
-            
+
+
 ```JSX
 <!doctype html>
 <html lang="en">
