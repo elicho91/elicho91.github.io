@@ -87,7 +87,7 @@ comments: true
 - 1) Ajax 시작하기
         
 
-        - **미세먼지 OpenAPI**
+- **미세먼지 OpenAPI**
 
 
             ```html
@@ -151,8 +151,8 @@ comments: true
 - 2) Ajax 통신의 결과값을 이용해보기
 
 
-        ```jsx
-        $.ajax({
+```jsx
+$.ajax({
           type: "GET", // GET 방식으로 요청한다.
           url: "http://spartacodingclub.shop/sparta_api/seoulair",
           data: {}, // 요청하면서 함께 줄 데이터 (GET 요청시엔 비워두세요)
@@ -160,7 +160,7 @@ comments: true
             console.log(response) // 서버에서 준 결과를 이용해서 나머지 코드를 작성
           }
         })
-        ```
+```
         
     - 개발자도구 콘솔에 찍어보기
         
@@ -201,7 +201,7 @@ comments: true
         - 복습할 때 참고! - 해설) 모든 구의 미세먼지 값을 찍어보기
             1. 미세먼지 데이터가 어디에 있는지 찾기
                 
-                ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/cf6e770d-9618-4c1d-beef-afb23b3cd2c9/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/cf6e770d-9618-4c1d-beef-afb23b3cd2c9/Untitled.png)
+                ![Untitle](https://teamsparta.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fcf6e770d-9618-4c1d-beef-afb23b3cd2c9%2FUntitled.png?table=block&id=5a4d82fc-9704-44d0-8c82-6957b2259345&spaceId=83c75a39-3aba-4ba4-a792-7aefe4b07895&width=480&userId=&cache=v2)
                 
                 위 그림과 같이 RealtimeCityAir > row 에 미세먼지 데이터가 들어있음.
                 
@@ -219,9 +219,9 @@ comments: true
                 
             2. 반복문으로 구 데이터를 출력해보기
                 
-                ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/dc6ab951-95aa-4415-8977-fc988e04e3cc/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/dc6ab951-95aa-4415-8977-fc988e04e3cc/Untitled.png)
+                ![Untitle](https://teamsparta.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fdc6ab951-95aa-4415-8977-fc988e04e3cc%2FUntitled.png?table=block&id=d8a50140-85db-4d2e-b3cc-799dcd4e37d0&spaceId=83c75a39-3aba-4ba4-a792-7aefe4b07895&width=480&userId=&cache=v2)
                 
-                row의 값을 mise_list에 담았으니, 반복문을 이용해보겠습니다!
+                row의 값을 mise_list에 담고 반복문 돌리기!
                 
                 ```jsx
                 $.ajax({
@@ -240,7 +240,7 @@ comments: true
                 
             3. 구 데이터에서 구 이름, 미세먼지 수치를 골라내어 출력하기
                 
-                ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/41a0dbc3-2ad1-458f-baeb-08961f950b25/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/41a0dbc3-2ad1-458f-baeb-08961f950b25/Untitled.png)
+                ![Untitle](https://teamsparta.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F41a0dbc3-2ad1-458f-baeb-08961f950b25%2FUntitled.png?table=block&id=c5196d3f-1dcd-4370-9d4d-59e97cb6e900&spaceId=83c75a39-3aba-4ba4-a792-7aefe4b07895&width=480&userId=&cache=v2)
                 
                 구 이름 키 값인 "MSRSTE_NM", 미세먼지 수치 키값인 "IDEX_MVL"의 밸류를 출력
                 
